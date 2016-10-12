@@ -1,0 +1,30 @@
+form {
+  $error-color: #cc2511;
+  &.ng-submitted input.ng-invalid {
+    border-bottom: 1px solid $error-color;
+  }
+
+  &.ng-submitted input.ng-invalid + i.icon.error {
+    display: block;
+  }
+  &.ng-submitted input.ng-valid + i.icon.error {
+    display: none;
+  }
+
+  i.icon.error {
+    color: $error-color;
+  }
+  input + i.icon.error {
+    display: none;
+    margin-left: 8px;
+  }
+
+  .errors {
+    .ng-active {
+      color: $error-color;
+      margin: 10px;
+    }
+  }
+}
+
+

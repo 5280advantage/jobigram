@@ -1,0 +1,25 @@
+<ion-view id="view-map" >
+    <ion-nav-title>{{ 'mapTitle' | translate }}</ion-nav-title>
+    <!--<ion-nav-buttons side="right">-->
+        <!--<button class="button button-icon" distance-modal>-->
+            <!--<i class="icon ion-funnel"></i>-->
+        <!--</button>-->
+    <!--</ion-nav-buttons>-->
+    <ion-content scroll="false">
+        <div id="map_canvas" data-tap-disabled="true"></div>
+    </ion-content>
+    <ion-footer-bar >
+        <div class="row" ng-if="loading">
+            <div class="col">
+                <div class="center" >
+                    <ion-spinner></ion-spinner>
+                </div>
+            </div>
+        </div>
+        <button ng-if="!loading"
+                class="button button-positive button-block button-outline"
+                ng-click="onSearchHere()" >
+            {{ 'searchInHere' | translate }}
+        </button>
+    </ion-footer-bar>
+</ion-view>

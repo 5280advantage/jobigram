@@ -1,0 +1,79 @@
+<div class="center padding" ng-if="showErrorView">
+  <div class="error ">
+    <i class="icon icon-large ion-ios-cloud-download-outline"></i>
+    <p>{{ "errorText" | translate }}</p>
+    <button class="button button-primary" ng-click="onReload()">
+      {{ "tryAgainText" | translate }}
+    </button>
+  </div>
+
+</div>
+<div class="center padding" ng-if="showEmptyView">
+  <div class="error">
+    <i class="icon icon-large ion-android-alert"></i>
+    <p>{{ "galleriesNotFoundText" | translate }}</p>
+  </div>
+</div>
+
+<div class="center padding" ng-if="loading &&!data.length">
+  <ion-spinner></ion-spinner>
+</div>
+
+<div class="row " ng-if="$index % 3 === 0" ng-repeat="image in data | orderBy:'createdAt':true">
+  <div class="col col-33 " ng-if="$index < data.length">
+    <img ng-if="profile"
+         profile-modal
+         user="data[$index].user.obj"
+         width="100%"
+         img-cache
+         ic-src="{{::data[$index].imageThumb.url() || 'img/user.png'}}"
+         ic-default="img/user.png"/>
+    <img ng-if="!profile"
+         ion-slideshow
+         ng-model="data"
+         index="$index"
+         img-cache
+         ic-src="{{::data[$index].imageThumb.url() || 'img/user.png'}}"
+         ic-default="img/user.png"
+         width="100%"/>
+  </div>
+  <div class="col col-33 " ng-if="$index + 1 < data.length">
+    <img ng-if="profile"
+         profile-modal
+         user="data[$index + 1].user.obj"
+         img-cache
+         ic-src="{{::data[$index + 1].imageThumb.url() || 'img/user.png'}}"
+         ic-default="img/user.png"
+         width="100%"/>
+    <img ng-if="!profile" ion-slideshow ng-model="data" index="$index+1"
+         img-cache
+         ic-src="{{::data[$index + 1].imageThumb.url() || 'img/user.png'}}"
+         ic-default="img/user.png"
+         width="100%"/>
+  </div>
+  <div class="col col-33 " ng-if="$index + 2 < data.length">
+    <img ng-if="profile"
+         profile-modal
+         user="data[$index + 2].user.obj"
+         img-cache
+         ic-src="{{::data[$index + 2].imageThumb.url() || 'img/user.png'}}"
+         ic-default="img/user.png"
+         width="100%"/>
+    <img ng-if="!profile"
+         ion-slideshow
+         ng-model="data"
+         index="$index+2"
+         img-cache
+         ic-src="{{::data[$index + 2].imageThumb.url() || 'img/user.png'}}"
+         ic-default="img/user.png"
+         width="100%"/>
+  </div>
+
+</div>
+
+<ion-infinite-scroll
+        on-infinite="onLoadMore()"
+        ng-if="moreDataCanBeLoaded"
+        spinner
+        distance="1%">
+</ion-infinite-scroll>

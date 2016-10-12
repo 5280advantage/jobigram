@@ -1,0 +1,84 @@
+<ion-view>
+
+    <ion-nav-title>
+        <span>{{ 'searchText' | translate }}</span>
+    </ion-nav-title>
+
+    <ion-nav-buttons side="right">
+        <button class="button button-icon ion-ios-location" ui-sref="tab.map"></button>
+    </ion-nav-buttons>
+
+
+    <ion-header-bar class="bar bar-{{theme}} bar-subheader item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="text"
+                   ng-model="searchValue"
+                   ng-change="onSearch()"
+                   ng-model-options="{debounce:1000}"
+                   style="text-transform:lowercase"
+                   placeholder="{{ 'searchText' | translate }}">
+        </label>
+        <button class="button button-clear" ng-if="searchValue.length>1"
+                ng-click="clearSearch()" translate="cancel">
+        </button>
+    </ion-header-bar>
+    <ion-content class="has-subheader">
+        <ion-refresher pulling-text="Loading" on-refresh="onReload()"></ion-refresher>
+
+        <div class="center padding" ng-if="showErrorView">
+            <div class="error ">
+                <i class="icon icon-large ion-ios-cloud-download-outline"></i>
+                <p>{{ "errorText" | translate }}</p>
+                <button class="button button-primary" ng-click="onReload">
+                    {{ "tryAgainText" | translate }}
+                </button>
+            </div>
+
+        </div>
+        <div class="center padding" ng-if="showEmptyView">
+            <div class="error">
+                <i class="icon icon-large ion-android-alert"></i>
+                <p>{{ "galleriesNotFoundText" | translate }}</p>
+            </div>
+        </div>
+
+
+        <div class="center padding" ng-if="loading">
+            <ion-spinner></ion-spinner>
+        </div>
+
+        <div class="row " ng-if="$index % 3 === 0" ng-repeat="image in data | orderBy:'createdAt':true">
+            <div class="col col-33 "
+                 ui-sref="tab.searchProfile({username: data[$index].user.username})">
+                <img profile-modal user="data[$index].user.obj"
+                     img-cache
+                     ic-default="img/user.png"
+                     ic-src="{{ data[$index].imageThumb._url}}" width="100%"/>
+            </div>
+            <div class="col col-33 " ng-if="$index + 1"
+                 ui-sref="tab.searchProfile({username: data[$index].user.username})">
+                <img profile-modal user="data[$index + 1].user.obj"
+                     img-cache
+                     ic-default="img/user.png"
+                     ic-src="{{ data[$index + 1].imageThumb._url}}" width="100%"/>
+            </div>
+            <div class="col col-33 " ng-if="$index + 2"
+                 ui-sref="tab.searchProfile({username: data[$index].user.username})">
+                <img profile-modal user="data[$index + 2].user.obj"
+                     img-cache
+                     ic-default="img/user.png"
+                     ic-src="{{ data[$index + 2].imageThumb._url}}" width="100%"/>
+            </div>
+
+        </div>
+
+        <ion-infinite-scroll
+                on-infinite="onLoadMore()"
+                ng-if="moreDataCanBeLoaded"
+                spinner
+                distance="1%">
+        </ion-infinite-scroll>
+
+    </ion-content>
+</ion-view>

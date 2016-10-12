@@ -1,0 +1,79 @@
+<ion-view >
+
+    <ion-header-bar class="bar-positive">
+        <h1 class="title" translate="Profile"></h1>
+    </ion-header-bar>
+
+    <ion-content>
+
+        <div class="row step1">
+            <div class="col">
+                <img class="avatar"
+                     user-avatar
+                     ng-model="user"
+                     ng-src="{{ currentUser.photo.url() || 'img/user.png' }}"/>
+            </div>
+        </div>
+        <div class="step2">
+            <form name="myForm" novalidate="novalidate" on-submit="submitAvatar(myForm, form)">
+
+                <label class="item item-input validated">
+                    <i class="icon icon-envelope placeholder-icon"></i>
+                    <input required="required"
+                           type="email"
+                           name="email"
+                           ng-model="form.email"
+                           placeholder="user@example.com"/>
+                </label>
+
+                <label class="item item-input validated">
+                    <i class="icon ion-at placeholder-icon"></i>
+                    <input required="required"
+                           type="text"
+                           name="username"
+                           ng-model="form.username"
+                           ng-minlength="4"
+                           ng-maxlength="12"
+                           ng-model-options="{debounce: 1000}"
+                           placeholder="{{'yourLogin' | translate}}"/>
+                </label>
+
+                <div ng-if="myForm.username.$dirty">
+                    <div ng-messages="myForm.email.$error" class="validation-error">
+                        <div ng-message="required" translate="usernameRequired"></div>
+                        <div ng-message="email" translate="usernameInUse"></div>
+                    </div>
+                    <div ng-messages="myForm.email.$pending" class="validation-pending">
+                        <div ng-message="email" translate="checkingUsername"></div>
+                    </div>
+                </div>
+
+                <label class="item item-input validated">
+                    <i class="icon icon-user placeholder-icon"></i>
+                    <input required
+                           type="text"
+                           name="name"
+                           ng-model="form.name"
+                           placeholder="{{'name'|translate}}"/>
+                </label>
+
+                <label class="item item-input validated">
+                    <i class="icon ion-pound placeholder-icon"></i>
+                    <input required
+                           type="text"
+                           name="status"
+                           ng-model="form.status"
+                           placeholder="{{'status'|translate}}"/>
+                </label>
+
+                <div class="padding">
+                    <button class="button button-block button-positive"
+                            type="submit"
+                            translate="{{'submit' | translate}}">
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

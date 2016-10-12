@@ -1,0 +1,22 @@
+<ion-modal-view>
+    <form name="rForm" novalidate>
+        <ion-header-bar class="bar bar-{{theme}}">
+            <button ng-click="closeModal()" class="button button-clear " translate="cancel"></button>
+            <h1 class="title" translate="createAlbum" ng-if="!form.id"></h1>
+            <h1 class="title" translate="editAlbum" ng-if="form.id"></h1>
+            <button ng-click="createAlbum(rForm, form)" class="button button-clear  " translate="submit"></button>
+        </ion-header-bar>
+        <ion-content>
+            <div class="list">
+                <label class="item item-input">
+                    <input type="text" name="title" placeholder="{{'albumName' | translate}}" ng-model="form.title"
+                           required>
+                </label>
+                <label class="item item-input">
+                    <textarea name="description" placeholder="{{'albumDesc' | translate}}"
+                              ng-model="form.description"></textarea>
+                </label>
+            </div>
+        </ion-content>
+    </form>
+</ion-modal-view>

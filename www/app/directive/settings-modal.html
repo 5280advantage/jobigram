@@ -1,0 +1,33 @@
+<ion-modal-view class="modal-profile">
+    <ion-header-bar class="bar bar-{{theme}}">
+        <button class="button button-clear" ng-click="closeSettingModal()" translate="cancel"></button>
+        <div class="title" translate="settingTitle"></div>
+    </ion-header-bar>
+    <ion-content class="animated fadeIn">
+
+        <div class="list">
+            <ion-language language="language"></ion-language>
+
+            <ion-toggle class="toggle-positive" ng-model="form.push">
+                <h3>
+                    <small translate="notificationText"></small>
+                </h3>
+                <p ng-if="form.push" translate="on"></p>
+
+                <p ng-if="!form.push" translate="off"></p>
+            </ion-toggle>
+
+
+            <ion-item class="item-icon-right" href="http://photogramapp.com">
+                <h3>
+                    <small translate="terms"></small>
+                </h3>
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+
+        </div>
+        <div class="padding">
+            <button ng-click="logout()" class="button button-block button-positive" translate="logout"></button>
+        </div>
+    </ion-content>
+</ion-modal-view>

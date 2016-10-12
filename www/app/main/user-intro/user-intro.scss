@@ -1,0 +1,214 @@
+.view-intro {
+  $size: 35px;
+  $fab-bottom: 120px;
+
+  ion-language {
+    button.button-language {
+      color: #fff !important;
+    }
+  }
+
+  ion-footer-bar {
+    display: block;
+    height: 95px !important;
+    background-color: #fff !important;
+    padding-top: 0px;
+    bottom: -2px;
+
+    facebook-login {
+      clear: both;
+      width: 100%;
+      top: 0px;
+      position: relative;
+    }
+
+    .row {
+      margin-top: 0px;
+      padding: 0;
+      position: relative;
+      top: -15px;
+      button {
+        &:first-child {
+          margin-right: 5px !important;
+        }
+      }
+    }
+
+  }
+
+  .scroll-content {
+    .scroll {
+      height: 100%;
+    }
+    color: #fff;
+    text-align: center;
+
+    .button-fab {
+      border-radius: 50%;
+      min-width: $size;
+      min-height: $size;
+      width: $size;
+      height: $size;
+      border: none;
+      transition: all 1s ease;
+      &.left {
+        left: 10px !important;
+        position: absolute;
+        bottom: $fab-bottom;
+        width: 10px !important;
+        box-shadow: 4px 5px 6px 0px rgba(0, 0, 0, .4);
+
+        &.ng-enter, &.ng-leave {
+          opacity: 0;
+          left: -100px;
+        }
+
+      }
+      &.left:active {
+        box-shadow: 4px 5px 6px 5px rgba(0, 0, 0, .4);
+      }
+      &.right {
+        right: 10px !important;
+        position: absolute;
+        bottom: $fab-bottom;
+        width: 10px !important;
+        box-shadow: -2px 5px 6px 0px rgba(0, 0, 0, .4);
+        &.ng-enter, &.ng-leave {
+          opacity: 0;
+          right: -100px;
+        }
+      }
+      &.right:active {
+        box-shadow: -2px 5px 6px 5px rgba(0, 0, 0, .4);
+      }
+    }
+    .intro-slider {
+      display: block;
+      height: 100%;
+      .content {
+        position: relative;
+        height: 100%;
+        .last {
+          .logo2 {
+            position: absolute;
+            display: block;
+            margin: 20px auto;
+            width: 250px;
+            height: 100px;
+            top: 30%;
+            left: 0;
+            right: 0;
+            img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 80px;
+            }
+            span.icon2-logo {
+              font-size: 45pt;
+              color: #fff;
+              display: block;
+              margin: 22px;
+              position: absolute;
+              top: 0;
+              left: 25%;
+            }
+          }
+          button.button {
+            position: absolute;
+            color: #fff;
+            border: 1px solid #fff;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 90%;
+            bottom: 10%;
+          }
+        }
+        span.top {
+          display: block;
+          padding: 0;
+          margin: 0px 15px;
+          height: 50px;
+          top: 30px;
+          position: relative;
+          h2 {
+            display: block;
+            position: absolute;
+            text-align: center;
+            color: #fff;
+            bottom: 25%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            font-size: 14pt;
+            line-height: 14pt;
+          }
+
+          //  animation
+          @include animate(fadeInDown, 1s, .5s);
+        }
+        .phone {
+          position: relative;
+          width: 80%;
+          height: 736px;
+          max-width: 414px;
+          margin: 0 auto;
+          top: 20px;
+
+          @include animate(fadeInUp, 1s, 0.1s);
+          &.iphone {
+            background-image: url(../img/devices/iphone.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 80%;
+            max-width: 407px;
+            min-width: 270px;
+            img {
+              display: block;
+              margin: 0 auto;
+              position: relative;
+              width: 79%;
+              top: 9.1%;
+            }
+          }
+          &.android {
+            background-image: url(../img/devices/android.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 90%;
+            max-width: 340px;
+            min-width: 330px;
+            margin-top: 10px;
+            img {
+              display: block;
+              margin: 0 auto;
+              position: relative;
+              width: 90%;
+              top: 7.1%;
+            }
+          }
+        }
+      }
+      .slider {
+        display: block;
+        height: 100%;
+        padding-top: 50px;
+      }
+      .slider-pager,
+      button.button {
+        @include animate(fadeInDown, 1s, 0.1s);
+      }
+      .slider-pager {
+        bottom: 110px;
+
+        //  animation
+        span.slider-pager-page {
+          top: 15px;
+          color: #fff !important;
+        }
+      }
+    }
+  }
+
+}

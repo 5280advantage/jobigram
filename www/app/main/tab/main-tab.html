@@ -1,0 +1,37 @@
+<ion-view cache-view="true">
+    <ion-nav-bar class="bar bar-{{theme}}">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-tabs class="tabs-light tabs-photogram">
+
+        <ion-tab icon-on="ion-ios-home"
+                 icon-off="ion-ios-home-outline"
+                 ui-sref="tab.home">
+            <ion-nav-view name="tabHome"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab icon-on="ion-ios-world"
+                 icon-off="ion-ios-world-outline" ui-sref="tab.search">
+            <ion-nav-view name="tabSearch"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab class="middle"
+                 icon-on="ion-ios-camera"
+                 icon-off="ion-ios-camera-outline"
+                 ng-click="vm.postPhoto()">
+            <ion-nav-view name="tabCapture"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab icon-on="ion-ios-heart"
+                 icon-off="ion-ios-heart-outline"
+                 badge="badge"
+                 ui-sref="tab.activity">
+            <ion-nav-view name="tabActivity"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab icon-on="ion-ios-person"
+                 icon-off="ion-ios-person-outline" ui-sref="tab.account">
+            <ion-nav-view name="tabProfile"></ion-nav-view>
+        </ion-tab>
+    </ion-tabs>
+</ion-view>

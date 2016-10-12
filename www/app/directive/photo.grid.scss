@@ -1,0 +1,25 @@
+photo-grid {
+  display: block;
+  position: relative;
+  .row {
+    padding: 0;
+    .col {
+      height: 160px;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid #fff;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 160px;
+        min-height: 160px;
+        background-color: #ccc;
+        cursor: pointer;
+      }
+
+    }
+  }
+
+}

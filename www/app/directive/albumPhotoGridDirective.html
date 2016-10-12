@@ -1,0 +1,55 @@
+<ion-modal-view cache-view="false">
+    <ion-header-bar class="bar bar-{{theme}}">
+        <a ng-click="closeAlbumPhotoGridModal()" class="button button-icon icon ion-ios-close-empty"></a>
+        <h1 class="title" ng-bind="title"></h1>
+        <a class="button button-icon icon ion-android-more-vertical"
+           ng-if="canEdit"
+           ng-click="openPopover($event)"></a>
+    </ion-header-bar>
+
+    <ion-content class="padding">
+
+        <div class="center padding" ng-if="loading">
+            <ion-spinner></ion-spinner>
+        </div>
+
+        <div class="row "
+             ng-repeat="image in data | orderBy:'createdAt':true"
+             ng-if="!loading && $index % 3 === 0">
+            <div class="col col-33 " ng-if="$index < data.length">
+                <img ng-if="profile" profile-modal user="data[$index].user.obj"
+                     ic-src="{{ ::data[$index].imageThumb.url()}}"
+                     img-cache
+                     ic-default="img/user.png"
+                     width="100%"/>
+                <img ng-if="!profile" ion-slideshow can-edit="canEdit" ng-model="data" index="$index"
+                     img-cache
+                     ic-src="{{ ::data[$index].imageThumb.url()}}" width="100%"/>
+            </div>
+            <div class="col col-33 " ng-if="$index + 1 < data.length">
+                <img ng-if="profile" profile-modal user="data[$index + 1].user.obj"
+                     img-cache
+                     ic-default="img/user.png"
+                     ic-src="{{ ::data[$index + 1].imageThumb.url()}}"
+                     width="100%"/>
+                <img ng-if="!profile" ion-slideshow can-edit="canEdit" ng-model="data" index="$index+1"
+                     img-cache
+                     ic-src="{{ ::data[$index + 1].imageThumb.url()}}" width="100%"/>
+            </div>
+            <div class="col col-33 " ng-if="$index + 2 < data.length">
+                <img ng-if="profile" profile-modal user="data[$index + 2].user.obj"
+                     img-cache
+                     ic-default="img/user.png"
+                     ic-src="{{ ::data[$index + 2].imageThumb.url()}}" width="100%"/>
+                <img ng-if="!profile" ion-slideshow can-edit="canEdit" ng-model="data" index="$index+2"
+                     img-cache
+                     ic-default="img/user.png"
+                     ic-src="{{ ::data[$index + 2].imageThumb.url()}}" width="100%"/>
+            </div>
+
+        </div>
+
+
+    </ion-content>
+
+</ion-modal-view>

@@ -1,0 +1,64 @@
+#!/bin/bash
+#
+# Creates a signed and zipaligned APK from your Ionic project
+#
+# Place your keystore in the root of your project and name it <company>.keystore
+# Use this script as following :
+#
+# $ ./bin/apk [company] [appname] [version]
+# $ ./bin/apk agenciafoccus Photogram 3.0.2
+#
+#
+# Original at https://gist.github.com/th3m4ri0/acc2003adc7dffdbbad6
+# Author : Erwan d'Orgeville<info@erwandorgeville.com>
+#
+# Features : Willian Ribeiro Angelo<agfoccus@gmail.com>
+
+# Abort if any command returns something else than 0
+set -e
+
+company="$1"
+appname="$2"
+version="$3"
+
+if [[ -z "$1" ]]; then
+    echo "No company name provided, aborting..."
+    exit 1
+fi
+if [[ -z "$2" ]]; then
+    echo "No appname, aborting..."
+    exit 1
+fi
+
+if [[ -z "$3" ]]; then
+    echo "No version provided, aborting..."
+    exit 1
+fi
+
+echo "       $2      Version: $3 "
+echo ""
+echo ""
+# echo "---> Gulp Production"
+#gulp clean
+#gulp build
+
+echo "---> Starting build  $appname v$version"
+cordova build android --release
+
+echo ""
+echo ""
+echo "---> Zipaligning"
+
+mkdir -p releases/
+# rm releases/com.$company.$appname.v$version.apk
+./zipalign -v 4 platforms/android/build/outputs/apk/android-x86-release.apk releases/com.$company.$appname.v$version-x86.apk
+./zipalign -v 4 platforms/android/build/outputs/apk/android-armv7-release.apk releases/com.$company.$appname.v$version-arm7.apk
+
+
+
+echo ""
+echo ""
+echo "---> App released ! Look for releases/com.$company.$appname.v$version-x86.apk"
+echo "---> App released ! Look for releases/com.$company.$appname.v$version-arm7.apk"
+
+open releases/

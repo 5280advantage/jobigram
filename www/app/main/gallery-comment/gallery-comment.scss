@@ -1,0 +1,36 @@
+#view-comment {
+
+  .list {
+
+    .item {
+
+      h2 {
+        margin-top: 0;
+      }
+
+    }
+  }
+  ion-footer-bar {
+    padding: 0;
+
+    label {
+
+      textarea {
+        border: none;
+        padding: 0;
+      }
+    }
+
+    .message-footer {
+      &.ng-show, &.ng-enter {
+        @include animate(fadeInUp, 1s, 0);
+      }
+
+      &.ng-hide {
+        @include animate(fadeInDown, 1s, 0);
+      }
+
+    }
+  }
+
+}

@@ -1,0 +1,13 @@
+<ul class="list-group product-search demo-scrollable-menu">
+    <li mentio-menu-item="product" ng-repeat="product in items" class="list-group-item clearfix">
+        <div class="row">
+            <div class="col-xs-2 text-center">
+                <img ng-src="{{product.imageUrl}}" class="product-photo">
+            </div>
+            <div class="col-xs-10">
+                <h4 class="list-group-item-heading">{{product.title | words:5}}</h4>
+                <p class="list-group-item-text">{{product.description | words:7}}</p>
+            </div>
+        </div>
+    </li>
+</ul>

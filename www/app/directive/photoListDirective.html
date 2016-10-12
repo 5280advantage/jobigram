@@ -1,0 +1,102 @@
+
+<div class="center padding" ng-if="showErrorView">
+    <div class="error ">
+        <i class="icon icon-large ion-ios-cloud-download-outline"></i>
+        <p>{{ "errorText" | translate }}</p>
+        <button class="button button-primary" ng-click="onReload">
+            {{ "tryAgainText" | translate }}
+        </button>
+    </div>
+
+</div>
+<div class="center padding" ng-if="showEmptyView">
+    <div class="error">
+        <i class="icon icon-large ion-android-alert"></i>
+        <p>{{ "galleriesNotFoundText" | translate }}</p>
+    </div>
+</div>
+
+
+<div class="center padding" ng-if="loading &&!data.length">
+    <ion-spinner></ion-spinner>
+</div>
+
+<div class="list card " ng-repeat="gallery in data | orderBy:'createdAt':true">
+
+    <div class="item item-avatar" ng-click="load(gallery.user.get('username'))" ion-affix
+         data-affix-within-parent-with-class="card">
+        <img img-cache
+             ic-src="{{::gallery.user.get('photo').url() || 'img/user.png'}}"
+             ic-default="img/user.png">
+
+        <h2>{{ ::gallery.user.get('name')}}</h2>
+
+        <p>{{ ::gallery.user.get('status')}}</p>
+        <span>{{ gallery.createdAt | amTimeAgo}}</span>
+    </div>
+
+    <div class="item item-body" on-double-tap="like(gallery.id)" ng-model="gallery">
+        <div class="icon ion-ios-heart heart" ng-class="gallery.isLiked ? 'happy' : 'broken' "></div>
+        <i class="icon" ng-if="like"></i>
+        <img id="{{ ::gallery.id}}"
+             img-cache
+             ic-src="{{gallery.image.url()}}"
+             ic-default="img/user.png">
+    </div>
+    <div class="item item-buttons">
+        <div class="row">
+            <div class="col col-30">
+                <ion-spinner ng-show="gallery.progress"></ion-spinner>
+                <button photo-like
+                        loading="gallery.progress"
+                        ng-model="gallery"
+                        ng-if="!gallery.progress"
+                        ng-class="gallery.isLiked ? 'ion-ios-heart' : 'ion-ios-heart-outline' "
+                        class="button-clear button-icon button-heart"></button>
+                <button ng-click="openComment(gallery.id)"
+                        ng-model="gallery"
+                        class="button-clear button-icon ion-ios-chatbubble-outline"></button>
+            </div>
+            <div class="col album-name text-center" album-photo-grid album="gallery.album.id" edit="gallery.canEdit">
+                <div ng-bind="gallery.album.attributes.title"></div>
+            </div>
+            <div class="col text-right">
+                <button ng-click="action(gallery)" photogram="{{ :: gallery.id }}"
+                        class="button-clear button-icon ion-navicon"></button>
+            </div>
+        </div>
+    </div>
+    <div class="padding">
+
+    <span class="likes" ng-click="openLikers(gallery.id)">
+        <i class="icon ion-ios-heart"></i>
+        <span ng-if="!gallery.progress">{{ gallery.likesTotal  }}</span>
+        <span translate="likesText"></span>
+    </span>
+
+
+        <div class="list-comments">
+            <div class="comment-item">
+                <span profile-modal username="gallery.user.get('username')" class="username">{{ :: gallery.user.get('name') }}</span>
+                <span class="comment" ng-bind-html="gallery.title | hashtag "></span>
+            </div>
+            <div class="comment-item"
+                 ng-repeat="item in gallery.comments |limitTo:3 | orderBy:'createdAt':true">
+                <span class="username" profile-modal username="gallery.user.get('username')">{{ :: item.user.name }}</span>
+                <span class="comment" ng-bind-html="item.text | hashtag"></span>
+            </div>
+            <a class="comment-item" ng-click="openComment(gallery.id)" ng-if="gallery.commentsTotal>3"
+               translate="seeAllCommentText"></a>
+        </div>
+
+        <button class="button button-block button-clear button-comment " ng-click="openComment(gallery.id)"><span
+                translate="addComment"></span>
+        </button>
+    </div>
+</div>
+
+<ion-infinite-scroll
+        on-infinite="onLoadMore()"
+        ng-if="moreDataCanBeLoaded"
+        spinner>
+</ion-infinite-scroll>

@@ -1,0 +1,83 @@
+
+#map_canvas img {
+  max-width: none !important;
+}
+
+.label {
+  box-sizing:border-box;
+  background: #05F24C;
+  box-shadow: 2px 2px 4px #333;
+  border:5px solid #346FF7;
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  -webkit-animation: pulse 1s ease 1s 3;
+  -moz-animation: pulse 1s ease 1s 3;
+  animation: pulse 1s ease 1s 3;
+}
+
+.gm-style-iw {
+  width: 250px !important;
+  top: 15px !important;
+  left: 0px !important;
+  background-color: #fff !important;
+  box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+  border: 1px solid rgba(72, 181, 233, 0.6);
+  border-radius: 2px 2px 10px 10px;
+}
+
+#iw-container {
+  margin-bottom: 10px;
+  width: 100%;
+  background-color: #fff;
+
+  div {
+    width: 100%;
+  }
+
+  .iw-title {
+    font-size: 22px;
+    font-weight: 400;
+    padding: 10px;
+    background-color: $positive;
+    color: white;
+    margin: 0;
+    border-radius: 2px 2px 0 0;
+    width: 100%;
+  }
+
+  .iw-subTitle {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 5px 0;
+  }
+
+  .iw-bottom-gradient {
+    position: absolute;
+    width: 326px;
+    height: 25px;
+    bottom: 10px;
+    right: 18px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  }
+
+  .iw-content {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+    margin-right: 1px;
+    padding: 15px 5px 20px 15px;
+    max-height: 140px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    img {
+      float: right;
+      margin: 0 5px 5px 10px;
+    }
+
+  }
+}

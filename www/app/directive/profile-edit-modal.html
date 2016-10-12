@@ -1,0 +1,88 @@
+<ion-modal-view class="profile-edit">
+    <ion-header-bar class="bar bar-{{theme}}">
+        <button class="button button-clear" ng-click="closeModal()" translate="cancel"></button>
+        <div class="title">{{ ::'editProfile' | translate }}</div>
+    </ion-header-bar>
+    <ion-content class="view-avatar">
+
+        <div class="step2">
+            <form name="rForm" ng-submit="submitUpdateProfile(rForm, form)" novalidate>
+
+                <img class="avatar"
+                     user-avatar
+                     ng-model="currentUser"
+                     ng-src="{{ currentUser.photo.url() || 'img/user.png' }}"/>
+
+                <label class="item item-input">
+                    <i class="icon ion-clipboard placeholder-icon"></i>
+                    <input required="required"
+                           type="text"
+                           name="name"
+                           ng-model="form.name"
+                           placeholder="{{'name' | translate}}"/>
+                </label>
+
+                <label class="item item-input">
+                    <i class="icon ion-at placeholder-icon"></i>
+                    <input required="required"
+                           type="text"
+                           name="username"
+                           ng-model="form.username"
+                           ng-minlength="4"
+                           ng-maxlength="12"
+                           ng-pattern="/^[a-zA-Z'. -]+$/"
+                           placeholder="{{'username' | translate}}"/>
+                </label>
+
+
+
+                <label class="item item-input">
+                    <i class="icon ion-earth placeholder-icon"></i>
+                    <input
+                           type="url"
+                           name="website"
+                           ng-model="form.website"
+                           placeholder="{{'site' | translate}}"/>
+                </label>
+
+                <label class="item item-input">
+                    <i class="icon ion-information-circled placeholder-icon"></i>
+                    <input required="required"
+                           type="text"
+                           name="status"
+                           ng-model="form.status"
+                           placeholder="{{'status' | translate}}"/>
+                </label>
+
+                <ion-item class="item-divider" translate="privateInformation"></ion-item>
+
+
+                <label class="item item-input">
+                    <i class="icon icon-envelope placeholder-icon"></i>
+                    <input type="email"
+                           name="email"
+                           ng-model="form.email"
+                           disabled
+                           ng-model-options="{debounce: 1000}"
+                           placeholder="user@example.com"/>
+                </label>
+
+
+                <label class="item item-input">
+                    <i class="icon ion-iphone placeholder-icon"></i>
+                    <input required="required"
+                           type="tel"
+                           name="phone"
+                           ng-model="form.phone"
+                           placeholder="{{'phone' | translate }}"/>
+                </label>
+
+                <div class="padding">
+                    <button type="submit" class="button button-block button-positive" translate="submit"></button>
+                </div>
+            </form>
+
+
+        </div>
+    </ion-content>
+</ion-modal-view>

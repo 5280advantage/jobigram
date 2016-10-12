@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <title>Photogram</title>
+  <meta
+    name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+  <meta
+    name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <script
+    src="https://maps.googleapis.com/maps/api/js?libraries=visualization,places&language=en&key=AIzaSyC8eGCewEpCrfG_2OWoMHMsvDzglPIVzRA"></script>
+
+  <link rel="stylesheet" href="lib/ionic/release/css/ionic.css">
+  <link rel="stylesheet" href="app/ionic.app.css">
+
+  <script src="cordova.js"></script>
+  <script src="lib/ionic/release/js/ionic.bundle.js"></script>
+
+  <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+  <script src="lib/angular-messages/angular-messages.min.js"></script>
+  <script src="lib/angular-cookies/angular-cookies.min.js"></script>
+  <script src="lib/ngstorage/ngStorage.min.js"></script>
+  <script src="lib/angular-local-storage/angular-local-storage.min.js"></script>
+  <script src="lib/angular-translate/angular-translate.min.js"></script>
+  <script src="lib/angular-translate-loader-partial/angular-translate-loader-partial.min.js"></script>
+  <script src="lib/angular-translate-handler-log/angular-translate-handler-log.min.js"></script>
+  <script src="lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+  <script src="lib/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js"></script>
+  <script src="lib/angular-translate-storage-local/angular-translate-storage-local.min.js"></script>
+
+  <script src="lib/angular-dynamic-locale/tmhDynamicLocale.min.js"></script>
+  <script src="lib/moment/moment.js"></script>
+  <script src="lib/angular-moment/angular-moment.min.js"></script>
+  <script src="lib/ng-facebook/ngFacebook.js"></script>
+  <script src="lib/angular-cache/dist/angular-cache.min.js"></script>
+  <script src="lib/angular-imgcache-preloader/angular-imgcache-preloader.js"></script>
+  <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="lib/ment.io/dist/mentio.min.js"></script>
+  <script src="lib/angulartics/dist/angulartics.min.js"></script>
+  <script src="lib/angulartics/dist/angulartics-ga-cordova-google-analytics-plugin.min.js"></script>
+
+  <script src="lib/angulartics-google-analytics/dist/angulartics-ga.min.js"></script>
+  <script src="lib/ionic-scroll-sista/dist/ionic.scroll.sista.js"></script>
+  <script src="lib/ion-affix/ion-affix.js"></script>
+  <script src="lib/imgcache.js/js/imgcache.js"></script>
+  <script src="lib/lodash/dist/lodash.min.js"></script>
+  <script src="lib/parse/parse.js"></script>
+
+  <script src="app/makerclusterer.js"></script>
+  <script src="app/google.analytics.js"></script>
+  <script src="app/index.module.js"></script>
+  <script src="app/index.config.js"></script>
+  <script src="app/index.constant.js"></script>
+  <script src="app/index.routes.js"></script>
+
+  <script src="app/main/main.module.js"></script>
+
+  <script src="app/main/account-friend-list/account-friend-list.module.js"></script>
+  <script src="app/main/feedback/feedback-factory.js"></script>
+  <script src="app/main/feedback/feedback-form.js"></script>
+  <script src="app/main/feedback/feedbackDirective.js"></script>
+  <script src="app/main/gallery-comment/gallery.commnet.ctrl.js"></script>
+  <script src="app/main/loading/loading.ctrl.js"></script>
+  <script src="app/main/profile/profile.ctrl.js"></script>
+  <script src="app/main/profile-photo/profilePhotoCtrl.js"></script>
+  <script src="app/main/share/gallery.share.modal.factory.js"></script>
+  <script src="app/main/tab/MainTabCtrl.js"></script>
+  <script src="app/main/tab-account/account.ctrl.js"></script>
+  <script src="app/main/tab-activity/activity.ctrl.js"></script>
+  <script src="app/main/tab-home/home.controller.js"></script>
+  <script src="app/main/tab-search/search.ctrl.js"></script>
+  <script src="app/main/tab-search-map/SearchMapController.js"></script>
+  <script src="app/main/user-avatar/UserAvatarCtrl.js"></script>
+  <script src="app/main/user-avatar/userAvatarDirective.js"></script>
+  <script src="app/main/user-followers/UserFollowerController.js"></script>
+  <script src="app/main/user-following/UserFollowingController.js"></script>
+  <script src="app/main/user-intro/UserIntroCtrl.js"></script>
+  <script src="app/main/user-likers/UserLikersController.js"></script>
+  <script src="app/main/user-merge/merge.ctrl.js"></script>
+  <script src="app/main/user-list/UserListController.js"></script>
+  <script src="app/main/user-recovery/user.recovery.pass.ctrl.js"></script>
+  <script src="app/main/user-recovery/recovery.pass.directive.js"></script>
+
+  <script src="app/services/ActionSheetFactory.js"></script>
+  <script src="app/services/AuthFactory.js"></script>
+  <script src="app/services/CameraFactory.js"></script>
+  <script src="app/services/ConnectMonitorFactory.js"></script>
+  <script src="app/services/DataUtilFactory.js"></script>
+  <script src="app/services/DialogFactory.js"></script>
+  <script src="app/services/FacebookFactory.js"></script>
+  <script src="app/services/GalleryActivity.js"></script>
+  <script src="app/services/GalleryAlbumFactory.js"></script>
+  <script src="app/services/GalleryComment.js"></script>
+  <script src="app/services/GalleryFactory.js"></script>
+  <script src="app/services/GalleryFeedback.js"></script>
+  <script src="app/services/GeoLocationFactory.js"></script>
+  <script src="app/services/ParseFileFactory.js"></script>
+  <script src="app/services/ParsePushFactory.js"></script>
+  <script src="app/services/ParseServiceFactory.js"></script>
+  <script src="app/services/ShareFactory.js"></script>
+  <script src="app/services/ToastFactory.js"></script>
+  <script src="app/services/UserFactory.js"></script>
+
+
+  <script src="app/locale/momentjs.pt-br.js"></script>
+  <script src="app/locale/angular-locale-pt-br.js"></script>
+  <script src="app/filters/hashtagFilter.js"></script>
+  <script src="app/filters/words.filter.js"></script>
+  <script src="app/directive/albumGridDirective.js"></script>
+  <script src="app/directive/albumPhotoGridDirective.js"></script>
+  <script src="app/directive/buyDirective.js"></script>
+  <script src="app/directive/compareToDirective.js"></script>
+  <script src="app/directive/distanceModalDirective.js"></script>
+  <script src="app/directive/emailValidatorDirective.js"></script>
+  <script src="app/directive/facebookLoginDirective.js"></script>
+  <script src="app/directive/focusMeDirective.js"></script>
+  <script src="app/directive/galleryAlbumModalDirective.js"></script>
+  <script src="app/directive/galleryNewAlbumModalDirective.js"></script>
+  <script src="app/directive/heartDirective.js"></script>
+  <script src="app/directive/ion-href.module.js"></script>
+  <script src="app/directive/ion-loading.directive.js"></script>
+  <script src="app/directive/loadingDirective.js"></script>
+  <script src="app/directive/mapPhotoUserDirective.js"></script>
+  <script src="app/directive/photo.follow.modal.js"></script>
+  <script src="app/directive/photoGridDirective.js"></script>
+  <script src="app/directive/photoLikeDirective.js"></script>
+  <script src="app/directive/photoListDirective.js"></script>
+  <script src="app/directive/profile-edit-modal.directive.js"></script>
+  <script src="app/directive/profile.modal.directive.js"></script>
+  <script src="app/directive/search.directive.js"></script>
+  <script src="app/directive/settings-modal.directive.js"></script>
+  <script src="app/directive/SigninModalDirective.js"></script>
+  <script src="app/directive/SignupModalDirective.js"></script>
+  <script src="app/directive/usernameValidatorDirective.js"></script>
+  <script src="app/directive/validated.directive.js"></script>
+  <script src="app/directive/validated.submit.js"></script>
+
+  <script src="app/component/components.module.js"></script>
+  <script src="app/component/cache-src/cache-src.js"></script>
+  <script src="app/component/cache-src/svg-round-progress.js"></script>
+  <script src="app/component/ion-language/ion-language.module.js"></script>
+  <script src="app/component/ion-language/modal-language.directive.js"></script>
+  <script src="app/component/ion-location/ion-location.module.js"></script>
+  <script src="app/component/ion-location/ion-location.directive.js"></script>
+  <script src="app/component/ion-location/geoservice.factory.js"></script>
+  <script src="app/component/ion-photo/ion-photo.module.js"></script>
+  <script src="app/component/ion-photo/directives/ion-crop.directive.js"></script>
+  <script src="app/component/ion-photo/directives/sliderFilterDirective.js"></script>
+  <script src="app/component/ion-photo/services/jr-crop.js"></script>
+  <script src="app/component/ion-photo/services/photoservice.factory.js"></script>
+  <script src="app/component/ion-photo/services/video.factoy.js"></script>
+  <script src="app/component/ion-slideshow/ion-slideshow.module.js"></script>
+
+
+
+</head>
+<body ng-app="starter" class="photogram">
+<ion-nav-view>
+</ion-nav-view>
+</body>
+</html>

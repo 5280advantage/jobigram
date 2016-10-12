@@ -1,0 +1,12 @@
+#!/bin/bash
+# Usage: ./bin/build.sh 'platform'
+#
+
+echo "#### Cordova Clean Cache ####"
+cordova clean
+echo "#### Compilation Application ####"
+gulp clean
+gulp build
+echo "#### Build Release " $* " ####"
+cordova build $*
+

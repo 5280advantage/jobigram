@@ -1,0 +1,54 @@
+<ion-view id="user-list">
+    <ion-nav-title>
+        <span translate="likersText"></span>
+    </ion-nav-title>
+    <ion-header-bar class="bar bar-subheader item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="text"
+                   ng-model="searchValue"
+                   style="text-transform:lowercase"
+                   placeholder="{{ 'searchText' | translate }}">
+        </label>
+        <button class="button button-positive button-clear" ng-if="searchValue.length>1"
+                ng-click="clearSearch()" translate="cancel">
+        </button>
+    </ion-header-bar>
+    <ion-content class="has-subheader">
+
+        <div class="center padding" ng-if="vm.loading">
+            <ion-spinner></ion-spinner>
+        </div>
+
+        <div class="list">
+
+            <div ng-repeat="user in vm.users | filter:searchValue">
+                <a class="item item-avatar item-button-right">
+                    <img img-cache
+                         ic-default="img/user.png"
+                         ng-src="{{ user.photo._url || 'img/user.png'}}"
+                         ng-click="vm.openProfile(user)">
+                    <h2 ng-click="vm.openProfile(user)">{{user.username}}</H2>
+                    <p>{{user.status}}</p>
+
+                    <button class="button button-positive "
+                            ng-class="{'button-unfollow': user.isFollow, 'button-outline': !user.isFollow}"
+                            ng-click="vm.follow(user)">
+                        <div ng-show="!user.isFollow" translate>Follow</div>
+                        <div ng-show="user.isFollow" translate>Unfollow</div>
+                    </button>
+
+                </a>
+                <span class="row">
+                    <span class="col" ng-repeat="gallery in user.galleries">
+                        <img img-cache
+                             ic-default="img/user.png"
+                             ng-src="{{ gallery.imageThumb._url}}" id="{{ ::gallery.id}}">
+                    </span>
+                </span>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

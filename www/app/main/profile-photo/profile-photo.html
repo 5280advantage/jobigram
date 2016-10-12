@@ -1,0 +1,14 @@
+<ion-view cache-view="false" id="account-view">
+
+    <ion-nav-bar class="bar bar-{{theme}}">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-nav-title>
+        <span translate="photo"></span>
+    </ion-nav-title>
+
+    <ion-content scroll-sista="header-tabs" class="animated fadeIn">
+        <photo-list id="vm.id" profile="true" load="vm.openProfile" open-likers="vm.openLikers" on-reload="onReload"></photo-list>
+    </ion-content>
+</ion-view>

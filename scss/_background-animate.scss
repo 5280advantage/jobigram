@@ -1,0 +1,54 @@
+.bg-animate {
+  .scroll-content {
+    $color1: #5ebb27;
+    $color2: #ad1638;
+    $color3: #eb7149;
+    $color4: #ef9e3b;
+    $color5: #aec41f;
+    $color6: #007969;
+    $color7: #23abd1;
+    $color8: #007969;
+
+    // background gradient
+    $time-animate: 40s;
+    background: linear-gradient(298deg, $color1, $color2, $color3, $color4, $color5, $color6, $color7, $color8);
+    background-size: 1400% 1400%;
+    -webkit-animation: AnimationName $time-animate ease infinite;
+    -moz-animation: AnimationName $time-animate ease infinite;
+    animation: AnimationName $time-animate ease infinite;
+
+    @-webkit-keyframes AnimationName {
+      0% {
+        background-position: 0% 20%
+      }
+      50% {
+        background-position: 100% 81%
+      }
+      100% {
+        background-position: 0% 20%
+      }
+    }
+    @-moz-keyframes AnimationName {
+      0% {
+        background-position: 0% 20%
+      }
+      50% {
+        background-position: 100% 81%
+      }
+      100% {
+        background-position: 0% 20%
+      }
+    }
+    @keyframes AnimationName {
+      0% {
+        background-position: 0% 20%
+      }
+      50% {
+        background-position: 100% 81%
+      }
+      100% {
+        background-position: 0% 20%
+      }
+    }
+  }
+}

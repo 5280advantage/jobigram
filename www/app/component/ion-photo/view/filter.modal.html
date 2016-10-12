@@ -1,0 +1,80 @@
+<ion-modal-view id="photo-filter">
+    <ion-header-bar class="bar bar-{{theme}}">
+        <button class="button button-clear button-icon ion-ios-arrow-thin-left" ng-click="closeModalFilter()"></button>
+        <div class="title">{{ 'Filter' | translate }}</div>
+        <button class="button button-icon " ng-click="submitFilter()"><i class="icon ion-ios-arrow-thin-right"></i>
+        </button>
+    </ion-header-bar>
+    <ion-content>
+        <div class="box-image">
+            <img id="image" src="{{form.photo}}" ng-hide="loading" >
+            <ion-spinner ng-show="loading"></ion-spinner>
+        </div>
+        <img id="image3" src="" style="display: none">
+
+        <!-- Scroll Filters-->
+        <div ng-show="showFilter" class="slider-filters animate1">
+            <ion-scroll direction="x" class="image-filter">
+                <a ng-repeat="filter in imageFilters" ng-click="applyFilter(filter)">
+                    <p>{{ filter.name }}</p>
+                    <img id="{{filter.id}}" class="img-filter" src="">
+                </a>
+            </ion-scroll>
+            <div class="row">
+                <div class="col">
+                    <button class="button button-block bold ">Filter</button>
+                </div>
+                <div class="col">
+                    <button class="button button-block " ng-click="actionShowFilter(false)">Edit</button>
+                </div>
+            </div>
+        </div>
+        <!-- Filter Edit-->
+        <div ng-hide="showFilter" class=" slider-filters">
+            <!-- Range Filter-->
+            <div ng-show="filterEdit" class="slider-filters">
+                <p class="text-center">{{filter.name}}</p>
+                <div class="item range range-positive">
+                    <input type="range"
+                           min="-100"
+                           max="100"
+                           ng-model="filter.slider.value"
+                           ng-model-options="{debounce:100}"
+                           step="0.1">
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="button button-block " ng-click="cancelFilter(filter)">Cancel</button>
+                    </div>
+                    <div class="col">
+                        <button class="button button-block bold" ng-click="doneFilter()">Done</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter Icons-->
+            <div ng-show="!filterEdit" class="slider-filters ">
+                <ion-scroll direction="x">
+                    <a ng-repeat="filter in filters" ng-click="selectFilter(filter)">
+                        <p>{{ filter.name }}</p>
+                        <i class="icon {{filter.icon}}"></i>
+                    </a>
+                    <!-- Reset Filters-->
+                    <a ng-click="reset()">
+                        <p>Reset</p>
+                        <i class="icon ion-android-refresh"></i>
+                    </a>
+                </ion-scroll>
+                <div class="row">
+                    <div class="col">
+                        <button class="button button-block " ng-click="actionShowFilter(true)">Filter</button>
+                    </div>
+                    <div class="col">
+                        <button class="button button-block bold">Edit</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-modal-view>

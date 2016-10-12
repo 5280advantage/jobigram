@@ -1,0 +1,34 @@
+.view-search {
+
+  .scroll-content {
+    background-color: #f1f1f1;
+  }
+
+  .bar {
+    top: 44px;
+  }
+  .layout {
+    margin-top: 44px;
+    margin-bottom: 44px;
+    height: 100%;
+    display: block;
+    position: relative;
+
+    ui-gmap-google-map {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .angular-google-map-container {
+      height: 100% !important;
+      min-height: 430px;
+    }
+
+    .angular-google-map {
+      height: 97%;
+    }
+  }
+
+}
+

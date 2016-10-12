@@ -1,0 +1,64 @@
+<div class="center padding" ng-if="showErrorView">
+    <div class="error ">
+        <i class="icon icon-large ion-ios-cloud-download-outline"></i>
+        <p>{{ "errorText" | translate }}</p>
+        <button class="button button-primary" ng-click="onReload()">
+            {{ "tryAgainText" | translate }}
+        </button>
+    </div>
+
+</div>
+<div class="center padding" ng-if="showEmptyView">
+    <div class="error">
+        <i class="icon icon-large ion-android-alert"></i>
+        <p>{{ "galleriesNotFoundText" | translate }}</p>
+    </div>
+</div>
+
+<div class="center padding" ng-if="loading &&!data.length">
+    <ion-spinner></ion-spinner>
+</div>
+
+<div class="row " ng-if="$index % 2 === 0" ng-repeat="image in data | orderBy:'createdAt':true">
+
+    <div class="col col-50 newAlbum " ng-if="$index < data.length && data[$index].create"
+         gallery-new-album-modal
+         ng-model="ngModel">
+        <div class="desc">
+            <i class="icon ion-ios-plus-empty"></i>
+            <h2 translate="createAlbum"></h2>
+        </div>
+    </div>
+    <div class="col col-50 "
+         ng-if="$index < data.length && !data[$index].create"
+         album-photo-grid
+         album="data[$index].id" edit="canEdit">
+        <img img-cache
+             ic-src="{{ ::data[$index ].imageThumb._url || 'img/albumnone.png'}}"
+             ic-default="img/user.png"
+             width="100%"/>
+        <div class="desc">
+            <h2>{{::data[$index].title}}</h2>
+            <p>{{::data[$index].qtyPhotos}} photos</p>
+        </div>
+    </div>
+    <div class="col col-50 "
+         ng-if="$index + 1 < data.length"
+         album-photo-grid album="data[$index+1].id" edit="canEdit">
+        <img img-cache
+             ic-src="{{ ::data[$index + 1].imageThumb._url || 'img/albumnone.png'}}"
+             ic-default="img/user.png"
+             width="100%"/>
+        <div class="desc">
+            <h2>{{::data[$index+1].title}}</h2>
+            <p>{{::data[$index+1].qtyPhotos}} photos</p>
+        </div>
+    </div>
+
+</div>
+<ion-infinite-scroll
+        on-infinite="onLoadMore()"
+        ng-if="moreDataCanBeLoaded"
+        spinner
+        distance="1%">
+</ion-infinite-scroll>

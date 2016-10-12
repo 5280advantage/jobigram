@@ -1,0 +1,85 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive">
+        <h1 class="title" translate="register"></h1>
+        <a ng-click="closeModal()" class="button button-icon icon ion-ios-close-empty"></a>
+    </ion-header-bar>
+
+
+    <form name="myForm" on-submit="submitRegister(myForm, form)" novalidate="novalidate">
+        <ion-content scroll="false">
+            <div class="step2">
+
+                <label class="item item-input validated">
+                    <i class="icon icon-envelope placeholder-icon"></i>
+                    <input required="required"
+                           type="email"
+                           name="email"
+                           ng-model="form.email"
+                           autocomplete="false"
+                           email-validator
+                           ng-model-options="{debounce: 1000}"
+                           placeholder="user@example.com"/>
+                    <i class="icon ion-alert-circled error"></i>
+                </label>
+
+                <div class="errors" ng-if="myForm.email.$dirty">
+                    <div ng-messages="myForm.email.$error" class="validation-error">
+                        <div ng-message="required" translate="emailRequired"></div>
+                        <div ng-message="email" translate="emailInUse"></div>
+                    </div>
+                    <div ng-messages="myForm.email.$pending" class="validation-pending">
+                        <div ng-message="email" translate="checkingEmail"></div>
+                    </div>
+                </div>
+
+                <label class="item item-input validated">
+                    <i class="icon icon-user placeholder-icon"></i>
+                    <input required="required"
+                           type="text"
+                           name="username"
+                           ng-model="form.username"
+                           username-validator
+                           ng-minlength="4"
+                           ng-maxlength="12"
+                           autocomplete="false"
+                           ng-model-options="{debounce: 1000}"
+                           placeholder="{{'yourLogin' | translate}}"/>
+                    <i class="icon ion-alert-circled error"></i>
+                </label>
+
+                <div class="errors" ng-if="myForm.username.$dirty">
+                    <div ng-messages="myForm.email.$error" class="validation-error">
+                        <div ng-message="required" translate="usernameRequired"></div>
+                        <div ng-message="email" translate="usernameInUse"></div>
+                    </div>
+                    <div ng-messages="myForm.email.$pending" class="validation-pending">
+                        <div ng-message="email" translate="checkingUsername"></div>
+                    </div>
+                </div>
+
+                <label class="item item-input validated">
+                    <i class="icon icon-lock placeholder-icon"></i>
+                    <input required
+                           type="password"
+                           name="password"
+                           ng-model="form.password"
+                           placeholder="{{'password'|translate}}"/>
+                    <i class="icon ion-alert-circled error"></i>
+                </label>
+
+                <div class="padding">
+                    <button class="button button-block button-positive "
+                            type="submit"
+                            translate="{{'submit' | translate}}">
+                    </button>
+
+                    <span class="term">{{'termAccept' | translate}} <a
+                            href="https://photogramapp.com">{{'terms' | translate}}</a> </span>
+                </div>
+
+            </div>
+
+        </ion-content>
+    </form>
+
+</ion-modal-view>

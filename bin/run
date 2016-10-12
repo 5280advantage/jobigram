@@ -1,0 +1,7 @@
+#!/bin/bash
+# Usage: prod 'platform'
+# 
+echo "Compilation Application"
+gulp build
+echo "Build platform"
+ionic run $*

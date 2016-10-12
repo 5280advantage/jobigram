@@ -1,0 +1,72 @@
+<ion-modal-view class="modal-share">
+    <form name="rForm" novalidate>
+        <ion-header-bar class="bar bar-{{theme}}">
+            <button class="button button-clear button-clear " ng-click="close()"
+                    translate="cancel"></button>
+            <div class="title" translate="shareGalleryText"></div>
+            <button class="button button-clear  " ng-click="submit(rForm, form)"
+                    translate="submit"></button>
+        </ion-header-bar>
+        <ion-content>
+            <div class="list">
+                <div class="item item-thumbnail-left">
+                    <img ng-src="{{image}}" ng-click="editFilter()"/>
+                    <textarea
+                            mentio
+
+                            mentio-trigger-char="'@'"
+                            mentio-items="people"
+                            mentio-template-url="app/mentio/people-mentions.html"
+                            mentio-search="searchPeople(term)"
+                            mentio-select="getPeopleTextRaw(item)"
+
+                            mentio-id="'theTextArea'"
+                            ng-trim="false"
+
+                            type="text"
+                            ng-model="form.title"
+                            placeholder="{{ 'description'|translate }}"
+                    ></textarea>
+                </div>
+
+
+                <label class="item item-input item-select">
+                    <div class="input-label" translate="privacity"></div>
+                    <select>
+                        <option value="public" translate="public"></option>
+                        <option value="follow" translate="followers"></option>
+                        <option value="me" translate="me"></option>
+                    </select>
+                </label>
+
+
+                <!-- Location-->
+                <div class="item item-divider" translate="shareLocation"></div>
+                <div class="item item-icon-left" ion-location ng-model="form.address" ng-if="!form.address.resume">
+                    <i class="icon ion-ios-location"></i>
+                    <span translate="addLocale"></span>
+                </div>
+
+                <a class="item item-icon-left item-button-right" ng-if="form.address.resume">
+                    <i class="icon ion-ios-location"></i>
+                    <h2>{{form.address.name || form.address.resume}}</h2>
+                    <p>{{form.address.resume}}</p>
+                    <button class="button button-icon" ng-click="closeAddress()">
+                        <i class="icon ion-ios-close"></i>
+                    </button>
+                </a>
+
+                <div class="item item-divider" translate="selectAlbumText"></div>
+                <!-- Album Gallery-->
+                <div class="item item-thumbnail-left" gallery-album-modal ng-model="form.album">
+                    <img ng-src="{{form.album.imageThumb._url || 'img/albumnone.png'}}">
+                    <h2 ng-if="!form.album.title" translate="clickSelectAlbum"></h2>
+                    <h2 ng-if="form.album" ng-bind="form.album.title"></h2>
+                    <p ng-if="form.album">{{form.album.qtyPhotos}} photos</p>
+                </div>
+
+            </div>
+
+        </ion-content>
+    </form>
+</ion-modal-view>

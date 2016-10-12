@@ -1,0 +1,19 @@
+#!/bin/bash
+# Usage: prod.sh 'platform'
+#
+
+# Abort if any command returns something else than 0
+set -e
+
+note="$1"
+
+if [[ -z "$1" ]]; then
+    echo "Not note, aborting..."
+    exit 1
+fi
+
+echo "Ionic Upload App"
+echo "Minify app"
+gulp build
+echo "Ionic Upload Start"
+ionic upload --note "$note"

@@ -1,0 +1,43 @@
+<ion-modal-view class="modal-profile">
+    <ion-header-bar class="bar bar-{{theme}}">
+        <button class="button button-clear button-icon ion-ios-arrow-thin-left" ng-click="closeModal()"></button>
+        <div class="title" translate="feedback"></div>
+    </ion-header-bar>
+    <ion-content>
+        <form name="myForm" novalidate="novalidate" ng-submit="submitFeedback(myForm, form)">
+
+            <label class="item item-input">
+                <i class="icon icon-envelope placeholder-icon"></i>
+                <input required="required"
+                       type="text"
+                       name="title"
+                       ng-model="form.title"
+                       placeholder="{{'feedback' | translate}}"/>
+            </label>
+
+            <label class="item item-input item-select">
+                <i class="icon ion-ios-information-outline placeholder-icon"></i>
+                <div class="input-label" translate>subject</div>
+                <select ng-model="form.subject">
+                    <option selected translate>complaint</option>
+                    <option translate>bug</option>
+                    <option translate>suggestion</option>
+                </select>
+            </label>
+
+
+            <label class="item item-input">
+                <i class="icon ion-ios-compose-outline placeholder-icon"></i>
+               <textarea ng-model="form.message" placeholder="{{'message' | translate}}"></textarea>
+            </label>
+
+            <div class="padding">
+                <button class="button button-block button-positive "
+                        type="submit"
+                        translate="{{'submit' | translate}}">
+                </button>
+            </div>
+        </form>
+
+    </ion-content>
+</ion-modal-view>

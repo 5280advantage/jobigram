@@ -1,0 +1,102 @@
+.platform-ios {
+  #photo-filter {
+    #image {
+      background-color: #ccc;
+      transform: rotateX(180deg);
+    }
+
+  }
+}
+
+#photo-filter {
+  .bold {
+    font-weight: bold;
+  }
+
+  #box-image {
+    display: block;
+    width: 100%;
+    max-height: 320px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .slider-filters {
+    position: absolute;
+    bottom: 0;
+    height: 170px;
+    white-space: nowrap;
+    padding-left: 10px;
+    padding-top: 10px;
+    width: 100%;
+    transition: all linear .5s;
+    background-color: #F8F8F8;
+
+    p {
+      color: #777;
+    }
+
+    img {
+      width: 90px;
+      box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    &.ng-hide {
+      opacity: 0;
+      bottom: -200px;
+    }
+
+    ion-scroll {
+      display: block;
+      height: 100px;
+      transition: all linear .5s;
+
+      &.ng-hide {
+        opacity: 0;
+        bottom: -200px;
+      }
+
+      a {
+        display: inline-block;
+        text-align: center;
+        width: 85px;
+        height: 100px;
+        color: #000;
+
+        button {
+          background-color: transparent !important;
+        }
+        img {
+          width: 70px;
+          height: 70px;
+          background-color: #ccc;
+        }
+
+        i {
+          display: block;
+          margin: 0 auto;
+          font-size: 40px;
+          border: 1px solid #ccc;
+          border-radius: 50%;
+          padding: 15px;
+          width: 70px;
+          height: 70px;
+        }
+      }
+    }
+
+    .item {
+      background-color: transparent;
+    }
+
+    .row, .col {
+      padding: 0;
+      margin: 0;
+    }
+
+  }
+}

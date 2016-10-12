@@ -1,0 +1,34 @@
+<ion-view id="view-home">
+
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-personadd-outline" ui-sref="tab.homeUserlist"></button>
+    </ion-nav-buttons>
+
+    <ion-nav-title>
+        <span class="icon2-logo"></span>
+    </ion-nav-title>
+
+    <div class="bar bar-subheader bar-positive">
+        <div class="button-bar">
+            <button class="button button-block button-positive icon-left ion-android-globe "
+                    ng-click="vm.onFeed('public')"
+                    ng-class="{'active': vm.type ==='public'}" translate="public"></button>
+            <button class="button button-block button-positive icon-left ion-ios-people"
+                    ng-click="vm.onFeed('follow')"
+                    ng-class="{'active': vm.type ==='follow'}" translate="followers"></button>
+            <button class="button button-block button-positive icon-left ion-ios-locked"
+                    ng-click="vm.onFeed('me')"
+                    ng-class="{'active': vm.type ==='me'}" translate="me"></button>
+        </div>
+    </div>
+
+    <ion-content class="has-header">
+
+        <ion-refresher pulling-text="Loading" on-refresh="onReload()"></ion-refresher>
+        <photo-list profile="true"
+                    type="vm.type"
+                    load="vm.openProfile"
+                    open-likers="vm.openLikers"
+                    on-reload="onReload"></photo-list>
+    </ion-content>
+</ion-view>

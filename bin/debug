@@ -1,0 +1,10 @@
+#!/bin/bash
+# Usage: prod.sh 'platform'
+# 
+echo "---> Compilation Application"
+gulp build
+
+echo ""
+echo ""
+echo "---> Build Debug" $*
+cordova build  $*

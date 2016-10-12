@@ -1,0 +1,18 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-positive">
+        <h1 class="title" translate="selectLanguageText"></h1>
+        <button class="button button-clear" ng-click="closeModal()" translate="cancel"></button>
+    </ion-header-bar>
+    <div class="bar bar-subheader item-input-inset bar-positive">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="search" placeholder="{{'searchText' | translate}}" ng-model="searchValue">
+        </label>
+        <button type="button" class="button button-clear" ng-show="searchValue.length" ng-click="searchValue=''" translate>Clear</button>
+    </div>
+    <ion-content class="has-subheader">
+        <ion-list>
+            <ion-item class="item" ng-click="selectLanguage(item)" ng-repeat="item in languages | filter:searchValue" ng-bind-html="item.translation | translate"></ion-item>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

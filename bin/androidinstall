@@ -1,0 +1,10 @@
+#!/bin/bash
+gulp clean
+gulp build
+echo 'Build App'
+ionic build android
+echo 'Installing app in Android'
+#adb install -r platforms/android/build/outputs/apk/android-debug.apk
+ionic run android
+#echo 'Log Start'
+# adb logcat CordovaLog:D *:S

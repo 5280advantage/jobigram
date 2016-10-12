@@ -1,0 +1,73 @@
+<ion-view class="list-activity">
+
+    <ion-nav-title>
+        <span translate="activities"></span>
+    </ion-nav-title>
+
+    <ion-content>
+
+        <div class="center padding" ng-if="loading &&!data.length">
+            <ion-spinner></ion-spinner>
+        </div>
+
+        <div class="center padding" ng-if="showErrorView">
+            <div class="error ">
+                <i class="icon icon-large ion-ios-cloud-download-outline"></i>
+                <p>{{ "errorText" | translate }}</p>
+                <button class="button button-positive" ng-click="onReload()">
+                    {{ "tryAgainText" | translate }}
+                </button>
+            </div>
+
+        </div>
+        <div class="center padding" ng-if="showEmptyView">
+            <div class="error ">
+                <i class="icon icon-large ion-android-alert"></i>
+                <p>{{ "activityNotFoundText" | translate }}</p>
+            </div>
+
+        </div>
+
+        <ion-refresher pulling-text="{{'loadingText'| translate}}" on-refresh="onReload()"></ion-refresher>
+
+        <div class="list">
+
+            <div class="item item-avatar item-animate1" ng-repeat="item in data | orderBy:'createdAt':true">
+                <img img-cache
+                     ic-default="img/user.png"
+                     ic-src="{{ item.user.photo._url  || './img/user.png'}}">
+
+                <h2 ng-click="openProfile(item.user.username)">{{ item.user.username}}</h2>
+
+                <div class="text">{{ item.action | translate }}</div>
+                <p>{{ item.createdAt | amTimeAgo }}</p>
+
+                <div class="img-right" ng-if="item.item.gallery">
+                    <img img-cache
+                         ic-default="img/user.png"
+                         ic-src="{{ item.item.gallery.attributes.imageThumb._url}}">
+                </div>
+
+                <div class="item-button-right" ng-if="!item.item.gallery">
+                    <button class="button button-positive"
+                            ng-disabled="item.user.loading"
+                            ng-class="{'button-unfollow': item.user.isFollow, 'button-outline': !item.user.isFollow}"
+                            ng-click="follow(item.user)">
+                        <div ng-show="!item.user.isFollow" translate>follow</div>
+                        <div ng-show="item.user.isFollow" translate>unfollow</div>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <ion-infinite-scroll
+                on-infinite="onLoadMore()"
+                ng-if="moreDataCanBeLoaded"
+                spinner
+                distance="1%">
+        </ion-infinite-scroll>
+
+    </ion-content>
+</ion-view>

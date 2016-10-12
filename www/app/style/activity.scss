@@ -1,0 +1,49 @@
+.list-activity {
+
+  .item {
+
+    &.item-button-right {
+      button.button {
+        top: 25%;
+        border: none;
+        &.button-stable {
+          color: $positive;
+        }
+        i {
+          font-size: 12px;
+        }
+      }
+    }
+
+    &.item-avatar {
+
+      h2 {
+        line-height: 11px;
+        font-size: 27px;
+        max-width: 53%;
+      }
+
+      .text {
+        font-size: 11px;
+      }
+
+      .img-right {
+        float: right;
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 0;
+        width: 70px;
+        height: 76px;
+        img {
+          border-radius: 0;
+          max-width: 70px;
+          max-height: 70px;
+          top: 5px;
+        }
+      }
+    }
+
+  }
+
+}

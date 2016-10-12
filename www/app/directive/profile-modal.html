@@ -1,0 +1,71 @@
+<ion-modal-view id="account-view">
+  <ion-header-bar class="bar bar-{{theme}}">
+    <button class="button button-clear button-icon ion-ios-arrow-thin-left" ng-click="closeModal()"></button>
+    <div class="title">{{ user.name }}</div>
+  </ion-header-bar>
+  <ion-content overflow-scroll="true">
+
+    <div class="profile-top">
+      <div class="row">
+        <div class="col-25">
+          <img class="avatar" ng-src="{{ user.photo._url || 'img/user.png'}}"/>
+        </div>
+        <div class="col col-statics">
+          <div class="row"><div class="row">
+            <div class="col">
+              <span class="text-center">{{ ::user.galleriesTotal || 0}}</span>
+
+              <h3 translate="postsText"></h3>
+            </div>
+            <div class="col">
+              <span class="text-center">{{ user.followersTotal || 0}}</span>
+
+              <h3 translate="followersText"></h3>
+            </div>
+            <div class="col">
+              <span class="text-center">{{ ::user.followingsTotal  || 0}}</span>
+              <h3 translate="followingText"></h3>
+            </div>
+          </div></div>
+          <div class="row col-edit">
+            <div class="col">
+              <photogram-loading loading="loadingFollow"></photogram-loading>
+              <button ng-class="{'button-unfollow': user.isFollow, 'button-follow': !user.isFollow}" ng-click="follow()" class="button">
+                <span ng-show="!user.isFollow" translate>Follow</span>
+                <span ng-show="user.isFollow" translate>Following</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="padding">
+        <span class="user-username">{{ user.name }}</span>
+
+        <p class="user-status">{{ user.status }}</p>
+      </div>
+
+    </div>
+
+    <div class="item bar">
+      <div class="button-bar">
+        <button class="button button-icon icon ion-grid" ng-class="{active: tab.grid}"
+                ng-click="changeTab('grid')"></button>
+        <button class="button button-icon icon ion-drag" ng-class="{active: tab.list}"
+                ng-click="changeTab('list')"></button>
+        <button class="button button-icon icon ion-ios-location"></button>
+
+      </div>
+    </div>
+
+    <div class="item item-divider" translate="recent"></div>
+
+    <div class="tab" ng-if="tab.list">
+      <!--<photo-list username="user.username"></photo-list>-->
+    </div>
+    <div class="tab" ng-if="tab.grid">
+      <!--<photo-grid user="user.username"></photo-grid>-->
+    </div>
+
+
+  </ion-content>
+</ion-modal-view>

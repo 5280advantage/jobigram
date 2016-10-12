@@ -1,0 +1,90 @@
+<ion-view id="view-comment" cache-view="false">
+
+    <ion-nav-bar class="bar bar-{{theme}}">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon button-clear ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+        </ion-nav-buttons>
+        <ion-nav-title>
+            <div class="title"><span translate="commentPhotoText"></span></div>
+        </ion-nav-title>
+    </ion-nav-bar>
+
+    <ion-content>
+        <div class="padding center" ng-if="loading">
+            <ion-spinner></ion-spinner>
+        </div>
+
+        <ion-list class="list" ng-if="!loading" can-swipe="true">
+            <div  class="item item-avatar">
+                <img img-cache
+                     ic-default="img/user.png"
+                     ic-src="{{ ::gallery.imageThumb.url()|| './img/user.png'}}">
+
+                <p>
+                    <h2>{{ ::gallery.profile.get('username') }}</h2><div class="text">{{ ::gallery.title }}</div>
+                </p>
+                <div class="row">
+                    <p>{{ ::gallery.createdAt | amTimeAgo }}</p>
+                </div>
+
+            </div>
+            <ion-item ng-repeat="item in comments | orderBy:'createdAt':false" class="item item-avatar">
+                <img img-cache
+                     ic-default="img/user.png"
+                     ic-src="{{ ::item.user.photo._url || './img/user.png'}}">
+                <p>
+                    <h2>{{ ::item.user.username }}</h2><div class="text">{{ ::item.text }}</div>
+                </p>
+                <div class="row">
+                    <p>{{ ::item.createdAt | amTimeAgo }}</p>
+                </div>
+
+                <div ng-if="item.canEdit">
+                    <ion-option-button class="button-info" ng-click="editComment(item, $index)"
+                                       translate="edit">Edit
+                    </ion-option-button>
+                    <ion-option-button class="button-assertive" ng-click="deleteComment(item, $index)"
+                                       translate="remove">Remove
+                    </ion-option-button>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <div class="center-ico" ng-if="nocomments">
+            <i class="icon ion-ios-chatbubble-outline"></i>
+
+            <h1 translate="noComments"></h1>
+        </div>
+    </ion-content>
+    <form name="rForm" ng-submit="submitComment(rForm, form)" novalidate>
+        <ion-footer-bar ng-hide="loading" class="bar-stable item-input-inset message-footer " keyboard-attach>
+            <label class="item-input-wrapper" ng-class="{'item-invalid': rForm.message.$invalid && !rForm.message.$pristine}">
+                <textarea
+                        name="message"
+                        mentio
+
+                        mentio-trigger-char="'@'"
+                        mentio-items="people"
+                        mentio-template-url="app/mentio/people-mentions.html"
+                        mentio-search="searchPeople(term)"
+                        mentio-select="getPeopleTextRaw(item)"
+                        mentio-id="'theTextArea'"
+                        ng-trim="false"
+                        ng-model="form.text"
+
+                        id="textComment"
+                        placeholder="{{'commentInHere' | translate}}"
+                        required
+                        minlength="1"
+                        maxlength="1500">
+                </textarea>
+            </label>
+            <div class="footer-btn-wrap">
+                <button class="button button-positive button-outline"
+                        type="submit"
+                        ng-disabled="!form.text || form.text === ''" translate="submit">
+                </button>
+            </div>
+        </ion-footer-bar>
+    </form>
+</ion-view>
