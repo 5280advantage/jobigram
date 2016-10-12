@@ -18,7 +18,7 @@
             facebookAppId  : '1024016557617380',
             parse          : {
                 appId : 'myAppId',
-                server: 'https://photogram.codevibe.io/parse/',
+                server: 'http://ec2-52-24-169-203.us-west-2.compute.amazonaws.com:8080/parse/',
             },
             map            : {
                 unit: 'mi',
