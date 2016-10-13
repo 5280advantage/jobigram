@@ -7,7 +7,7 @@
         return {
             restrict: 'E',
             link    : facebookLoginLink,
-            template: '<button class="button button-block button-facebook"><i class="icon ion-social-facebook"></i> <ion-spinner ng-if="loading"></ion-spinner> <span ng-if="!loading">{{ me.name || \'loginWithFacebook\'| translate}}</span> </button>',
+            template: '<button class="button button-block button-facebook margin-top-5 margin-bottom-5"><i class="icon ion-social-facebook"></i> <ion-spinner ng-if="loading"></ion-spinner> <span ng-if="!loading">{{ me.name || \'loginWithFacebook\'| translate}}</span> </button>',
         };
 
         function facebookLoginLink(scope, elem, attr) {

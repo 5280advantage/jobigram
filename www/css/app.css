@@ -1,0 +1,518 @@
+ion-language {
+  display: block;
+  width: 100%;
+}
+
+.platform-ios ion-language {
+  margin-top: 0;
+}
+.platform-ios ion-language .has-subheader {
+  top: 130px;
+}
+
+.photogram .scroll {
+  height: 100%;
+  min-width: 100%;
+}
+.photogram .title.text-left {
+  text-align: left;
+}
+.photogram .modal-share .scroll-content .list .item-thumbnail-left textarea {
+  width: 100%;
+  height: 100%;
+  min-height: 80px;
+}
+.photogram .modal-capture .scroll, .photogram .modal-capture ion-content {
+  background-color: #fff;
+  color: #000;
+}
+.photogram .capture-photo {
+  display: block;
+  position: relative;
+  margin-bottom: 10px;
+}
+.photogram .capture-photo .image {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 300px;
+}
+.photogram .capture-photo .image.disabled img, .photogram .capture-photo .image.disabled canvas {
+  opacity: 0;
+}
+.photogram .capture-photo .image img, .photogram .capture-photo .image canvas {
+  width: 100%;
+}
+.photogram .capture-photo ion-spinner {
+  position: absolute;
+  left: 45%;
+  top: 45%;
+  z-index: 3;
+  color: #fff;
+}
+.photogram .wide-as-needed {
+  position: absolute;
+  bottom: 0;
+  height: 150px;
+  overflow: scroll;
+  white-space: nowrap;
+  padding-left: 10px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: inherit;
+}
+.photogram .wide-as-needed ion-spinner {
+  position: absolute;
+  left: 35%;
+  top: 25%;
+  z-index: 3;
+  color: #fff;
+}
+.photogram .wide-as-needed a {
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+  height: 140px;
+  font-size: 11px;
+  width: 100px;
+}
+.photogram .wide-as-needed a .image {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #ccc;
+  height: 100px;
+  width: 100px;
+}
+.photogram .wide-as-needed a .image.disabled img, .photogram .wide-as-needed a .image.disabled canvas {
+  opacity: 0;
+}
+.photogram .wide-as-needed a .image img, .photogram .wide-as-needed a .image canvas {
+  max-height: 100px;
+}
+.photogram .wide-as-needed a p {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: #fff;
+  right: 0;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.jr-crop {
+  background-color: #000;
+  overflow: hidden;
+}
+
+.jr-crop-center-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.jr-crop-img {
+  opacity: 0.6;
+}
+
+.bar.jr-crop-footer {
+  border: none;
+  background-color: transparent;
+  background-image: none;
+}
+
+.platform-ios #photo-filter #image {
+  background-color: #ccc;
+  transform: rotateX(180deg);
+}
+
+#photo-filter .bold {
+  font-weight: bold;
+}
+#photo-filter #box-image {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  position: relative;
+  overflow: hidden;
+}
+#photo-filter img {
+  width: 100%;
+}
+#photo-filter .slider-filters {
+  position: absolute;
+  bottom: 0;
+  height: 170px;
+  white-space: nowrap;
+  padding-left: 10px;
+  padding-top: 10px;
+  width: 100%;
+  transition: all linear .5s;
+  background-color: #F8F8F8;
+}
+#photo-filter .slider-filters p {
+  color: #777;
+}
+#photo-filter .slider-filters img {
+  width: 90px;
+  box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.3);
+}
+#photo-filter .slider-filters.ng-hide {
+  opacity: 0;
+  bottom: -200px;
+}
+#photo-filter .slider-filters ion-scroll {
+  display: block;
+  height: 100px;
+  transition: all linear .5s;
+}
+#photo-filter .slider-filters ion-scroll.ng-hide {
+  opacity: 0;
+  bottom: -200px;
+}
+#photo-filter .slider-filters ion-scroll a {
+  display: inline-block;
+  text-align: center;
+  width: 85px;
+  height: 100px;
+  color: #000;
+}
+#photo-filter .slider-filters ion-scroll a button {
+  background-color: transparent !important;
+}
+#photo-filter .slider-filters ion-scroll a img {
+  width: 70px;
+  height: 70px;
+  background-color: #ccc;
+}
+#photo-filter .slider-filters ion-scroll a i {
+  display: block;
+  margin: 0 auto;
+  font-size: 40px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 15px;
+  width: 70px;
+  height: 70px;
+}
+#photo-filter .slider-filters .item {
+  background-color: transparent;
+}
+#photo-filter .slider-filters .row, #photo-filter .slider-filters .col {
+  padding: 0;
+  margin: 0;
+}
+
+/* Empty. Add your own CSS if you like */
+#ion-slideshow ion-header-bar {
+  background: #000 !important;
+  border: none;
+}
+#ion-slideshow ion-header-bar button {
+  color: #fff;
+}
+#ion-slideshow ion-content {
+  background-color: black;
+}
+#ion-slideshow h1 {
+  display: block;
+  position: absolute;
+  bottom: 35px;
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+  width: 100%;
+}
+#ion-slideshow .slider-pager .slider-pager-page {
+  color: #fff;
+}
+#ion-slideshow .transparent {
+  background: transparent !important;
+}
+#ion-slideshow .fullscreen-image {
+  max-width: 100%;
+  max-height: 100%;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+#ion-slideshow .slider {
+  width: 100%;
+  height: 100%;
+}
+#ion-slideshow .image-list-thumb {
+  padding: 2px 2px 2px 2px;
+  height: 100px;
+}
+#ion-slideshow .centerme {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+#ion-slideshow .fullscreen-player {
+  max-width: 100%;
+  max-height: 100%;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+album-grid {
+  display: block;
+  padding: 5px;
+  padding-right: 10px;
+}
+album-grid .row .col-50 {
+  display: block;
+  position: relative;
+  min-height: 150px !important;
+  background: #f7f7f7;
+  overflow: hidden;
+  padding: 0;
+  margin: 2px;
+}
+album-grid .row .col-50 .desc {
+  display: block;
+  color: #387ef5;
+  position: absolute;
+  left: 0px;
+  bottom: 5px;
+  right: 0px;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  padding: 0 10px;
+  background: transparent;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.42) 100%);
+}
+album-grid .row .col-50 .desc h2 {
+  color: #387ef5;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+album-grid .row .col-50.newAlbum {
+  background: #fff;
+}
+album-grid .row .col-50.newAlbum .desc {
+  background: #fff;
+  border: 1px solid #387ef5;
+  position: relative;
+  width: 100%;
+  min-height: 155px;
+  height: 97%;
+  top: 1px;
+}
+album-grid .row .col-50.newAlbum .desc i {
+  color: #387ef5;
+  font-size: 50px;
+  position: absolute;
+  top: 34%;
+  left: 45%;
+  font-weight: normal;
+}
+album-grid .row .col-50.newAlbum .desc h2 {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 40px;
+  text-align: center;
+  width: 100%;
+  color: #387ef5;
+}
+
+.item-body .heart {
+  font-size: 300px;
+  cursor: pointer;
+  position: absolute;
+  transition: all .3s ease;
+  color: #fff;
+  left: 15%;
+  top: 15%;
+  display: block;
+  z-index: 33333;
+  opacity: 0;
+}
+.item-body .heart.ng-animate.happy {
+  opacity: 0;
+  animation: fly 1s ease;
+}
+.item-body .heart.ng-animate.broken {
+  opacity: 0;
+  animation: flyout 1s ease;
+}
+
+@keyframes fly {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateX(-100%) translateY(150%) rotateZ(50deg);
+  }
+  50% {
+    opacity: 0.9;
+    color: #fff;
+    transform: scale(1) translateY(0) translateX(0) rotateZ(0deg);
+  }
+  100% {
+    opacity: 0;
+    color: #a00;
+    transform: scale(2);
+  }
+}
+@keyframes flyout {
+  0% {
+    opacity: 0;
+    color: #a00;
+    transform: scale(2);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    color: #fff;
+    transform: scale(0.5) translateX(-100%) translateY(150%) rotateZ(15deg);
+  }
+}
+ion-search {
+  display: block;
+  position: relative;
+}
+ion-search input {
+  width: 100%;
+  background-color: transparent;
+  border-bottom: 1px solid #f7f7f7;
+  padding: 2px 10px;
+  color: #000;
+}
+ion-search input::-webkit-input-placeholder {
+  color: #333;
+}
+ion-search input:-moz-placeholder {
+  color: #333;
+}
+ion-search input::-moz-placeholder {
+  color: #333;
+}
+ion-search input:-ms-input-placeholder {
+  color: #333;
+}
+ion-search .item-input .button .icon:before {
+  font-size: 22px !important;
+  color: #AAA !important;
+}
+
+map-photo-user #map_canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  min-height: 300px;
+}
+
+photo-grid {
+  display: block;
+  position: relative;
+}
+photo-grid .row {
+  padding: 0;
+}
+photo-grid .row .col {
+  height: 160px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #fff;
+}
+photo-grid .row .col img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 160px;
+  min-height: 160px;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+photo-list .album-name {
+  font-size: 16px;
+  padding-top: 16px;
+  color: #999;
+}
+photo-list .list {
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+}
+photo-list .list .card {
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+photo-list .item-body img {
+  min-height: 340px;
+  background-color: #f7f7f7;
+}
+photo-list .item-buttons {
+  padding: 0;
+  border-top: none;
+  border-bottom: 1px solid #ccc;
+}
+photo-list .item-buttons .row {
+  padding: 0;
+}
+photo-list .item-buttons .row button {
+  color: #979797;
+  font-size: 28px;
+  position: relative;
+}
+photo-list .item-buttons .row button.ion-ios-heart {
+  color: #a00;
+}
+photo-list .item-buttons .row button:last-child {
+  padding-right: 20px;
+}
+
+.profile-edit img.avatar {
+  position: absolute;
+  z-index: 999;
+  top: 10px;
+  right: 5px;
+  width: 83px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
