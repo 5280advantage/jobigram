@@ -1,0 +1,183 @@
+.industry-tags{
+  width: 100%;
+  text-align: center;
+}
+.industry-tag{
+  display: inline-block;
+  height: 40px;
+  line-height: 20px;
+  background-color: gray;
+  border-radius: 20px;
+  padding: 10px;
+  color: white;
+  margin: 5px;
+  min-width: 60px;
+  /*text-align: center;*/
+  white-space: normal;
+}
+.industry-tag-small{
+  display: inline-block;
+  height: 30px;
+  line-height: 10px;
+  background-color: gray;
+  border-radius: 20px;
+  padding: 10px;
+  color: white;
+  margin: 5px;
+  min-width: 60px;
+  text-align: center;
+  font-size: 14px;
+}
+.industry-tag.selected{
+  background-color: #0077b5;
+}
+.industry-tag-small.selected{
+  background-color: #0077b5;
+}
+.bar.bar-positive {
+  border-color: #0077b5;
+  background-color: #0077b5;
+  background-image: linear-gradient(0deg, #0077b5, #0077b5 50%, transparent 50%);
+  color: #fff; }
+.bar.bar-positive .title {
+  color: #fff; }
+.bar.bar-positive.bar-footer {
+  background-image: linear-gradient(180deg, #0077b5, #0077b5 50%, transparent 50%); }
+
+.bar-positive .button {
+  border-color: #0077b5;
+  background-color: #0077b5;
+  color: #fff; }
+.bar-positive .button:hover {
+  color: #fff;
+  text-decoration: none; }
+.bar-positive .button.active, .bar-positive .button.activated {
+  border-color: #0077b5;
+  background-color: #0077b5; }
+.bar-positive .button.button-clear {
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+  color: #fff;
+  font-size: 17px; }
+.bar-positive .button.button-icon {
+  border-color: transparent;
+  background: none; }
+.button-bar.bar-positive > .button {
+  border-color: #0077b5; }
+.button.button-positive {
+  border-color: transparent;
+  background-color: #0077b5;
+  color: #fff; }
+.button.button-positive:hover {
+  color: #fff;
+  text-decoration: none; }
+.button.button-positive.active, .button.button-positive.activated {
+  border-color: #a2a2a2;
+  background-color: #0c60ee; }
+.button.button-positive.button-clear {
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+  color: #0077b5; }
+.button.button-positive.button-icon {
+  border-color: transparent;
+  background: none; }
+.button.button-positive.button-outline {
+  border-color: #0077b5;
+  background: transparent;
+  color: #0077b5; }
+.button.button-positive.button-outline.active, .button.button-positive.button-outline.activated {
+  background-color: #0077b5;
+  box-shadow: none;
+  color: #fff; }
+
+.ion-nifty-modal {
+  width: 90%;
+  min-height: 0 !important;
+  height: 300px !important;
+  top: 25%;
+  left: 5%;
+  right: 5%;
+  bottom: 5%;
+  background-color: transparent;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); }
+
+.ion-nifty-modal .ion-modal-content-custom {
+  width: 100%;
+  height: 100%;
+  color: #FFF;
+  background-color: #333;
+  border-radius: 10px; }
+
+/* Fix modal backdrop for smaller devices */
+@media (max-width: 679px) {
+  .active .modal-backdrop-bg {
+    opacity: .5; }
+  .modal-backdrop-bg {
+    -webkit-transition: opacity 300ms ease-in-out;
+    transition: opacity 300ms ease-in-out;
+    background-color: #000;
+    opacity: 0; } }
+
+.select-industry-icon{
+  padding-left: 36px;
+  min-height: 45px !important;
+}
+.select-industry-icon h3{
+  margin:0 !important;
+}
+.select-industry-icon .icon{
+  font-size: 24px !important;
+  color: gray !important;
+}
+.select-industry-icon .icon:before{
+  width: 24px !important;
+  position: absolute !important;
+  top: 12px !important;
+}
+.sportsPickPopup .popup-buttons {
+  display: none;
+}
+.sportsPickPopup .popup .popup-head{
+  background-color:#0077b5;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.sportsPickPopup .popup .popup-head .popup-title{
+  color: white;
+}
+.sportsPickPopup .popup .popup-body{
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.sportsPickPopup .popup-body {
+  padding: 0 !important;
+}
+.sportsPickPopup .popup {
+  background-color: transparent !important;
+}
+.popup-separator {
+  border-bottom: 1px solid #eee;
+}
+.profile-name{
+  padding: 10px;
+  font-weight: bold;
+  position: absolute;
+  font-size: 16px;
+}
+.video-detail-label{
+  border: none !important;
+  background-color: transparent !important;
+  border-bottom: 1px solid #ddd !important;
+}
+.remove-tag{
+  position: absolute;
+  font-size: 24px;
+  color: #444;
+  right: -10px;
+  top: -10px;
+}

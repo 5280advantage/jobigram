@@ -21,9 +21,9 @@
                     console.log(user);
                     console.log(currentUser);
 
-                    if (user.id != currentUser.id) {
-                        return false;
-                    }
+                    // if (user.id != currentUser.id) {
+                    //     return false;
+                    // }
 
                     ActionSheet.image().then(function (image) {
                         tempImage = image;

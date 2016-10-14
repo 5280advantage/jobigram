@@ -1,0 +1,39 @@
+<ion-modal-view class="modal-profile ion-nifty-modal">
+  <div class="ion-modal-content-custom">
+    <ion-header-bar class="bar bar-positive">
+      <div class="title" translate="skillTitle"></div>
+    </ion-header-bar>
+    <ion-content class="animated fadeIn">
+      <div class="valign-parent">
+        <div class="industry-tags valign-child">
+          <div class="row row-no-padding padding-horizontal-20">
+            <div class="col">
+              <div class="list list-inset margin-0 transparent-bg">
+                <label class="item item-input video-detail-label padding-right-0 padding-left-0">
+                  <input class=" padding-right-0" type="text" placeholder="Add a skill" ng-model="enteredSkill">
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row row-no-padding div-centered-60 padding-top-10">
+            <div class="col text-center">
+              <button class="button button-block button-positive button-small button-outline"
+                      ng-click="addToSelectedSkills(enteredSkill)">Add</button>
+            </div>
+          </div>
+          <div class="industry-tag-small selected relative"
+               ng-repeat="skill in skills">
+            {{skill}}
+            <span class="icon ion-ios-close remove-tag" ng-click="addToSelectedSkills(skill)"></span>
+
+          </div>
+
+        </div>
+      </div>
+    </ion-content>
+    <ion-footer-bar class="bar-positive" align-title="center" ng-click="closeSkillsModal()">
+      <h1 class="title">Done</h1>
+    </ion-footer-bar>
+  </div>
+
+</ion-modal-view>

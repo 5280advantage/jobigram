@@ -21,7 +21,9 @@
         'ImgCache',
         'ionic.components',
         'angulartics.google.analytics.cordova',
-        'app.main'
+        'app.main',
+        'ngCordovaOauth',
+        'ionic.closePopup'
     ]);
 
 })();

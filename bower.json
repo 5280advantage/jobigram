@@ -40,7 +40,9 @@
     "imgcache.js": "^1.0.0",
     "pouchdb-upsert": "^2.0.1",
     "angular-imgcache-preloader": "^0.1.1",
-    "ng-cordova-oauth": "^0.2.10"
+    "ng-cordova-oauth": "^0.2.10",
+    "ionic-nifty-modal": "*",
+    "ionic-close-popup": "^0.0.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.8",

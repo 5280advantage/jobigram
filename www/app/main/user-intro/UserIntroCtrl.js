@@ -2,11 +2,31 @@
     'use strict';
     angular.module('starter').controller('UserIntroCtrl', UserIntroController);
 
-    function UserIntroController($scope, $ionicPlatform, $ionicSlideBoxDelegate, $cordovaSplashscreen) {
+    function UserIntroController($scope, $ionicPlatform, $ionicSlideBoxDelegate, $cordovaSplashscreen, $cordovaOauth, $http) {
         var vm              = this;
         var currentPlatform = window.ionic.Platform.platform();
         vm.slideIndex       = 0;
 
+      vm.linkedin = function(){
+        console.log('kya');
+        $cordovaOauth.linkedin('81c8ss9nvi4u85', 'URn53Si0WEfGIPd7', ["r_basicprofile", "r_emailaddress"], 'jobigram').then(
+          
+          function(data){
+            console.log(data);
+            var config = {
+              headers: {
+                'Authorization': 'Bearer ' + data.access_token
+              }
+            };
+            $http.get(
+              'https://api.linkedin.com/v1/people/~?format=json',config).then(function(data){
+              console.log(data);
+            },function(err){
+              console.log(err);
+            })
+          }
+        );
+      }
         vm.slideChanged = function (index) {
             vm.slideIndex = index;
         };

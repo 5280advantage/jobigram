@@ -1,0 +1,22 @@
+<ion-modal-view class="modal-profile ion-nifty-modal">
+  <div class="ion-modal-content-custom">
+    <ion-header-bar class="bar bar-positive">
+      <button class="button button-clear" ng-click="closeIndustryModal()" translate="cancel"></button>
+      <div class="title" translate="industryTitle"></div>
+    </ion-header-bar>
+    <ion-content class="animated fadeIn">
+      <div class="valign-parent">
+        <div class="industry-tags valign-child">
+          <div class="industry-tag" ng-click="addToSelected(industry)" ng-class="{'selected':isSelectedTmp(industry)}"
+               ng-repeat="industry in industries">
+            {{industry}}
+          </div>
+        </div>
+      </div>
+    </ion-content>
+    <ion-footer-bar class="bar-positive" align-title="center" ng-click="setSelected()">
+      <h1 class="title">Done</h1>
+    </ion-footer-bar>
+  </div>
+
+</ion-modal-view>

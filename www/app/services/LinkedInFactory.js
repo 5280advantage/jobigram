@@ -3,9 +3,9 @@
 
     angular.module('starter').service('LinkedIn', LinkedInFactory);
 
-    function LinkedInFactory($q, $linkedin, $cordovaLinkedIn) {
+    function LinkedInFactory($q, $cordovaOauth) {
 
-        var linkedin = window.cordova ? $cordovaLinkedIn : $linkedin;
+        // var linkedin = window.cordova ? $cordovaLinkedIn : $linkedin;
         var me;
 
         return {
@@ -23,6 +23,11 @@
         };
 
         function getCurrentUser() {
+          $cordovaOauth.linkedin('81c8ss9nvi4u85', 'URn53Si0WEfGIPd7', ["r_basicprofile", "r_emailaddress"], 'jobigram').then(
+            function(){
+
+            }
+          );
             return linkedin.getLoginStatus();
         }
 

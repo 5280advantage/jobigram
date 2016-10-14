@@ -115,8 +115,10 @@
             //ConnectMonitor.watch();
             //
         });
-
-
+      $rootScope.selected =[];
+      $rootScope.industries =['IT','Mechanical','Electronics','Chemical','Civil','Research'];
+      $rootScope.profile = '';
+      $rootScope.skills =[];
     }
 
     function configIonic($ionicConfigProvider) {
