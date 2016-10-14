@@ -1,88 +1,153 @@
 <ion-modal-view class="profile-edit">
-    <ion-header-bar class="bar bar-{{theme}}">
-        <button class="button button-clear" ng-click="closeModal()" translate="cancel"></button>
-        <div class="title">{{ ::'editProfile' | translate }}</div>
-    </ion-header-bar>
-    <ion-content class="view-avatar">
+  <ion-header-bar class="bar-positive">
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeModal()" translate="cancel"></button>
+    </div>
+    <div class="title">{{ ::'editProfile' | translate }}</div>
+  </ion-header-bar>
+  <ion-content class="view-avatar">
 
-        <div class="step2">
-            <form name="rForm" ng-submit="submitUpdateProfile(rForm, form)" novalidate>
+    <div class="step2">
+      <form name="rForm" ng-submit="submitUpdateProfile(rForm, form)" novalidate>
 
-                <img class="avatar"
-                     user-avatar
-                     ng-model="currentUser"
-                     ng-src="{{ currentUser.photo.url() || 'img/user.png' }}"/>
+        <img class="avatar"
+             user-avatar
+             ng-model="currentUser"
+             ng-src="{{ currentUser.photo.url() || profileImage }}"/>
 
-                <label class="item item-input">
-                    <i class="icon ion-clipboard placeholder-icon"></i>
-                    <input required="required"
-                           type="text"
-                           name="name"
-                           ng-model="form.name"
-                           placeholder="{{'name' | translate}}"/>
-                </label>
+        <label class="item item-input validated" ng-if="profile=='Employee'">
+          <i class="icon ion-drag placeholder-icon"></i>
+          <input required
+                 type="text"
+                 name="headline"
+                 ng-model="form.headline"
+                 placeholder="{{'Headline/Job Title'|translate}}"/>
+        </label>
 
-                <label class="item item-input">
-                    <i class="icon ion-at placeholder-icon"></i>
-                    <input required="required"
-                           type="text"
-                           name="username"
-                           ng-model="form.username"
-                           ng-minlength="4"
-                           ng-maxlength="12"
-                           ng-pattern="/^[a-zA-Z'. -]+$/"
-                           placeholder="{{'username' | translate}}"/>
-                </label>
+        <label class="item item-input validated">
+          <i class="icon icon-envelope placeholder-icon"></i>
+          <input required="required"
+                 disabled
+                 type="email"
+                 name="email"
+                 ng-model="form.email"
+                 placeholder="user@example.com"/>
+        </label>
 
+        <label class="item item-input">
+          <i class="icon ion-clipboard placeholder-icon"></i>
+          <input required="required"
+                 type="text"
+                 name="name"
+                 ng-model="form.name"
+                 placeholder="{{'name' | translate}}"/>
+        </label>
 
-
-                <label class="item item-input">
-                    <i class="icon ion-earth placeholder-icon"></i>
-                    <input
-                           type="url"
-                           name="website"
-                           ng-model="form.website"
-                           placeholder="{{'site' | translate}}"/>
-                </label>
-
-                <label class="item item-input">
-                    <i class="icon ion-information-circled placeholder-icon"></i>
-                    <input required="required"
-                           type="text"
-                           name="status"
-                           ng-model="form.status"
-                           placeholder="{{'status' | translate}}"/>
-                </label>
-
-                <ion-item class="item-divider" translate="privateInformation"></ion-item>
-
-
-                <label class="item item-input">
-                    <i class="icon icon-envelope placeholder-icon"></i>
-                    <input type="email"
-                           name="email"
-                           ng-model="form.email"
-                           disabled
-                           ng-model-options="{debounce: 1000}"
-                           placeholder="user@example.com"/>
-                </label>
-
-
-                <label class="item item-input">
-                    <i class="icon ion-iphone placeholder-icon"></i>
-                    <input required="required"
-                           type="tel"
-                           name="phone"
-                           ng-model="form.phone"
-                           placeholder="{{'phone' | translate }}"/>
-                </label>
-
-                <div class="padding">
-                    <button type="submit" class="button button-block button-positive" translate="submit"></button>
-                </div>
-            </form>
-
-
+        <label class="item item-input">
+          <i class="icon ion-at placeholder-icon"></i>
+          <input required="required"
+                 type="text"
+                 name="username"
+                 ng-model="form.username"
+                 ng-minlength="4"
+                 ng-maxlength="12"
+                 ng-pattern="/^[a-zA-Z'. -]+$/"
+                 placeholder="{{'username' | translate}}"/>
+        </label>
+        <label class="item item-input validated">
+          <i class="icon ion-ios-location-outline placeholder-icon"></i>
+          <input required
+                 type="text"
+                 name="status"
+                 ng-model="form.status"
+                 placeholder="{{addressPlaceholder|translate}}"/>
+        </label>
+        <label class="item item-input validated">
+          <i class="icon ion-android-call placeholder-icon"></i>
+          <input required
+                 type="tel"
+                 name="phone"
+                 ng-model="form.phone"
+                 placeholder="{{phonePlaceholder|translate}}"/>
+        </label>
+        <label class="item item-input validated">
+          <i class="icon icon-envelope placeholder-icon"></i>
+          <input required="required"
+                 type="email"
+                 name="email"
+                 ng-model="form.bizemail"
+                 placeholder="{{bizemailPlaceholder|translate}}"/>
+        </label>
+        <label class="item item-input validated" ng-if="profile=='Employer'">
+          <i class="icon ion-ios-world-outline placeholder-icon"></i>
+          <input required
+                 type="text"
+                 name="website"
+                 ng-model="form.website"
+                 placeholder="{{websitePlaceholder|translate}}"/>
+        </label>
+        <label class="item item-input validated" ng-if="profile=='Employee'">
+          <i class="icon ion-ios-glasses placeholder-icon"></i>
+          <input required
+                 type="text"
+                 name="exp"
+                 ng-model="form.exp"
+                 placeholder="{{'Experience'|translate}}"/>
+        </label>
+        <label class="item item-input validated" ng-if="profile=='Employee'">
+          <i class="icon ion-ios-calendar-outline placeholder-icon"></i>
+          <input required
+                 type="text"
+                 name="avail"
+                 ng-model="form.avail"
+                 placeholder="{{'Availability'|translate}}"/>
+        </label>
+        <label class="item item-input validated" ng-if="profile=='Employee'">
+          <i class="icon ion-university placeholder-icon"></i>
+          <input required
+                 type="text"
+                 name="edu"
+                 ng-model="form.edu"
+                 placeholder="{{'Education'|translate}}"/>
+        </label>
+        <label class="item item-input validated" ng-if="profile=='Employee'">
+          <i class="icon ion-cash placeholder-icon"></i>
+          <input required
+                 type="number"
+                 name="salary"
+                 ng-model="form.salary"
+                 placeholder="{{'Desired Salary'|translate}}"/>
+        </label>
+        <ion-item class="item-icon-left select-industry-icon" ng-click="openSkillsSelectModal()"
+                  ng-if="profile=='Employee'">
+          <i class="icon ion-gear-b "></i>
+          <h3>
+            <small>Your skills</small>
+          </h3>
+          <div class="industry-tags valign-child">
+            <div class="industry-tag-small selected"
+                 ng-repeat="skill in skills">
+              {{skill}}
+            </div>
+          </div>
+        </ion-item>
+        <ion-item ng-click="openIndustrySelectModal()">
+          <h3>
+            <small translate="industries"></small>
+          </h3>
+          <div class="industry-tags valign-child">
+            <div class="industry-tag-small selected" ng-click="addToSelected(industry)"
+                 ng-repeat="industry in selected">
+              {{industry}}
+            </div>
+          </div>
+        </ion-item>
+        <div class="padding">
+          <button type="submit" class="button button-block button-positive" translate="submit"></button>
         </div>
-    </ion-content>
+      </form>
+
+
+    </div>
+  </ion-content>
 </ion-modal-view>

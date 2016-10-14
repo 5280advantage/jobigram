@@ -30,13 +30,11 @@
 
         function openModal() {
           init();
-          scope.selectedTmp= [];
           $ionicModal.fromTemplateUrl('app/directive/settings-modal.html', {
             scope: scope
           }).then(function (modal) {
             scope.modalSetting = modal;
             scope.modalSetting.show();
-
           });
 
           scope.$on('changeLanguage', function (ev, value) {
@@ -50,53 +48,12 @@
             scope.modalSetting.hide();
             scope.modalSetting.remove();
           };
-
-          scope.closeIndustryModal = function(){
-            scope.modalIndustry.hide();
-            scope.modalIndustry.remove();
-          }
-
-          scope.openIndustrySelectModal = function () {
-            _.each($rootScope.selected,function(n){
-              scope.selectedTmp.push(n);
-            })
-            $ionicModal.fromTemplateUrl('app/directive/industries-modal.html', {
-              scope: scope
-            }).then(function (modal) {
-              scope.modalIndustry = modal;
-              scope.modalIndustry.show();
-            });
-          }
-
-          scope.addToSelected = function(tag){
-            if(_.indexOf($rootScope.selected,tag)==-1 && _.indexOf(scope.selectedTmp,tag)==-1) {
-              scope.selectedTmp.push(tag);
-            }
-            else{
-              scope.selectedTmp.splice(_.indexOf(scope.selectedTmp,tag),1);
-            }
-            console.log(scope.selectedTmp);
-            console.log($rootScope.selected);
-          }
-
+          
           scope.link = function (sref) {
             $state.go(sref);
             scope.closeModal();
           };
 
-          scope.isSelectedTmp = function(industry){
-            return _.indexOf(scope.selectedTmp,industry)!=-1;
-          }
-
-          scope.setSelected = function(){
-            $rootScope.selected = [];
-            _.each(scope.selectedTmp, function(n){
-              $rootScope.selected.push(n);
-            });
-            scope.selectedTmp = [];
-            scope.modalIndustry.hide();
-            scope.modalIndustry.remove();
-          }
         }
       }
     };

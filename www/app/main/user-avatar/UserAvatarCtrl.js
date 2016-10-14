@@ -10,7 +10,13 @@
 
     $scope.profileImage ='img/user.png';
     $scope.enteredSkill = '';
+    $scope.expSalary='';
 
+    $scope.skipProfile = function(){
+      $state.go(AppConfig.routes.home, {
+        clear: true
+      });
+    }
 
     $scope.showProfileChoice =function() {
       var options =
@@ -99,7 +105,7 @@
       else {
         $rootScope.skills.splice(_.indexOf($rootScope.skills, tag), 1);
       }
-      
+
       $scope.enteredSkill = '';
       console.log($rootScope.skills);
     }

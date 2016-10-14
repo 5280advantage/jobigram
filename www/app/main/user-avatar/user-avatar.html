@@ -3,7 +3,7 @@
   <ion-header-bar class="bar-positive">
     <h1 class="title" translate="Profile"></h1>
     <div class="buttons">
-      <button class="button button-clear">Skip</button>
+      <button class="button button-clear" ng-click="skipProfile()">Skip</button>
     </div>
   </ion-header-bar>
 
@@ -115,7 +115,7 @@
                  placeholder="{{'Experience'|translate}}"/>
         </label>
         <label class="item item-input validated" ng-if="profile=='Employee'">
-          <i class="icon ion-ios-glasses placeholder-icon"></i>
+          <i class="icon ion-ios-calendar-outline placeholder-icon"></i>
           <input required
                  type="text"
                  name="avail"
@@ -138,7 +138,7 @@
                  ng-model="form.salary"
                  placeholder="{{'Desired Salary'|translate}}"/>
         </label>
-        <ion-item class="item-icon-left select-industry-icon" ng-click="openSkillsSelectModal()">
+        <ion-item class="item-icon-left select-industry-icon" ng-click="openSkillsSelectModal()" ng-if="profile=='Employee'">
           <i class="icon ion-gear-b "></i>
           <h3>
             <small>Your skills</small>

@@ -143,7 +143,7 @@
         function signIn(obj) {
             var defer = $q.defer();
 
-            Parse.User.logIn(obj.username.toLowerCase(), obj.password, {
+            Parse.User.logIn(obj.username, obj.password, {
                 success: function (currentUser) {
 
                     // device

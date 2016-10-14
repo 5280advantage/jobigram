@@ -12,6 +12,15 @@
         vm.loading     = true;
         $scope.buttonTheme = 'button-' + AppConfig.theme;
 
+      if($rootScope.profile=='Employer'){
+        $rootScope.profile = 'Employer';
+        $scope.profileImage ='img/companylogo.png';
+      }
+      else{
+        $rootScope.profile = 'Employee';
+        $scope.profileImage ='img/user.png';
+      }
+
         User.getPublicData(Parse.User.current()).then(function (user) {
             console.log('Profile', user.attributes);
             vm.user    = user;

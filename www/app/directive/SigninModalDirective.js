@@ -33,10 +33,10 @@
                             $rootScope.$emit('photolist:reload');
                             Loading.end();
                         }).catch(function (resp) {
-                            Toast.alert({
-                                title: 'Error',
-                                text : $translate.instant('incorrectEmail')
-                            });
+                            // Toast.alert({
+                            //     title: 'Error',
+                            //     text : $translate.instant('incorrectEmail')
+                            // });
                             Loading.end();
                         });
                     } else {

@@ -26,6 +26,7 @@
                         var form = angular.copy(data);
                         User.signUp(form).then(function (resp) {
                             console.log(resp);
+                          console.log(form.username,form.password);
 
                             // After register, login
                             User.signIn({
@@ -42,18 +43,18 @@
                                 $scope.closeModal();
                             }).catch(function (resp) {
                                 console.log(resp);
-                                Toast.alert({
-                                    title: 'Alert',
-                                    text : resp.error
-                                });
+                                // Toast.alert({
+                                //     title: 'Alert',
+                                //     text : resp.error
+                                // });
                                 Loading.end();
                             });
                         }).catch(function (resp) {
                             console.log(resp);
-                            Toast.alert({
-                                title: 'Alert',
-                                text : resp.error
-                            });
+                            // Toast.alert({
+                            //     title: 'Alert',
+                            //     text : resp.error
+                            // });
                             Loading.end();
                         });
                     }
