@@ -126,7 +126,7 @@
           </h3>
           <div class="industry-tags valign-child">
             <div class="industry-tag-small selected"
-                 ng-repeat="skill in skills">
+                 ng-repeat="skill in form.skills">
               {{skill}}
             </div>
           </div>
@@ -137,7 +137,7 @@
           </h3>
           <div class="industry-tags valign-child">
             <div class="industry-tag-small selected" ng-click="addToSelected(industry)"
-                 ng-repeat="industry in selected">
+                 ng-repeat="industry in form.selected">
               {{industry}}
             </div>
           </div>

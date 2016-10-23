@@ -58,7 +58,15 @@
         email: user.email,
         status: user.status,
         gender: user.gender,
-        username: user.username
+        username: user.username,
+        headline: user.headline,
+        phone: user.phone,
+        bizemail: user.bizemail,
+        website: user.website,
+        exp: user.exp,
+        avail: user.avail,
+        edu: user.edu,
+        salary: user.salary
       };
       console.log($scope.form);
       console.log($scope.formFields);
@@ -158,9 +166,6 @@
       }
 
     }
-
     init();
   }
-
-
 })();

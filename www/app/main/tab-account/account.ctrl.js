@@ -46,11 +46,7 @@
 
         vm.changeTab = function changeTab(tab) {
             Object.keys(vm.tab).map(function (value) {
-                if (value == tab) {
-                    vm.tab[value] = true;
-                } else {
-                    vm.tab[value] = false;
-                }
+                vm.tab[value] = value == tab;
             });
         }
 

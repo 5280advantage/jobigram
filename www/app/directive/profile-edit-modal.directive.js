@@ -28,7 +28,17 @@
             photo: user.photo,
             username: user.username,
             gender: user.gender,
-            facebook: user.facebook
+            facebook: user.facebook,
+            headline: user.headline,
+            phone: user.phone,
+            bizemail: user.bizemail,
+            website: user.website,
+            exp: user.exp,
+            avail: user.avail,
+            edu: user.edu,
+            salary: user.salary,
+            skills: $rootScope.skills,
+            selected: $rootScope.selected
           };
 
           if($rootScope.profile=='Employer'){

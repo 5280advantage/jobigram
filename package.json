@@ -1,17 +1,17 @@
 {
   "name": "Photogram",
   "version": "3.0.18",
-   "scripts": {
+  "scripts": {
     "postinstall": "bower install && gulp serve",
     "test": "gulp test"
   },
   "dependencies": {
-    "elementtree": "^0.1.6",
-    "plist": "^1.2.0",
+    "angulartics-google-analytics": "^0.2.1",
     "browser-sync": "~2.9.11",
     "browser-sync-spa": "~1.0.3",
     "chalk": "~1.1.1",
     "del": "~2.0.2",
+    "elementtree": "^0.1.6",
     "eslint-plugin-angular": "~0.12.0",
     "estraverse": "~4.1.0",
     "gulp": "~3.9.0",
@@ -48,6 +48,7 @@
     "lodash": "~3.10.1",
     "main-bower-files": "~2.9.0",
     "map-stream": "0.0.6",
+    "plist": "^1.2.0",
     "traverse": "^0.6.6",
     "uglify-save-license": "~0.4.1",
     "vinyl-transform": "^1.0.0",
@@ -93,7 +94,6 @@
       "locator": "cordova-plugin-facebook4@1.6.3",
       "id": "cordova-plugin-facebook4@1.6.3"
     }
-
   ],
   "cordovaPlatforms": [
     "ios"
