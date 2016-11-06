@@ -22,7 +22,9 @@
                 $scope.submitLogin = function (rForm, data) {
                     var form = angular.copy(data);
                     if (rForm.$valid) {
-                        Loading.start();
+                        if( ionic.Platform.isIOS() ) {
+                            Loading.start();
+                        }
                         User.signIn(form).then(function (data) {
                             console.log(data);
                             $rootScope.currentUser = data;
@@ -31,13 +33,18 @@
                             });
                             $scope.closeModal();
                             $rootScope.$emit('photolist:reload');
-                            Loading.end();
+                            if( ionic.Platform.isIOS() ) {
+                                Loading.end();
+                            }
                         }).catch(function (resp) {
                             // Toast.alert({
                             //     title: 'Error',
                             //     text : $translate.instant('incorrectEmail')
                             // });
-                            Loading.end();
+                            // Loading.end();
+                            if( ionic.Platform.isIOS() ) {
+                                Loading.end();
+                            }
                         });
                     } else {
                         return false;
@@ -64,13 +71,17 @@
                                         //don't allow the user to close unless he enters wifi password
                                         e.preventDefault();
                                     } else {
-                                        Loading.start();
+                                        if( ionic.Platform.isIOS() ) {
+                                            Loading.start();
+                                        }
                                         User.recoverPassword($scope.data.email).then(function (resp) {
                                             Toast.alert({
                                                 title: 'Alert',
                                                 text : $translate.instant('recoverySuccess')
                                             });
-                                            Loading.end();
+                                            if( ionic.Platform.isIOS() ) {
+                                                Loading.end();
+                                            }
                                         });
                                     }
                                 }

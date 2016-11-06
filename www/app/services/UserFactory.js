@@ -130,8 +130,8 @@
         }
 
         function signUp(data) {
-            return new Parse.User()
-                .set({'name': data.name})
+                    return new Parse.User()
+                        .set({'name': data.name})
                 .set({'username': data.username})
                 .set({'email': data.email})
                 .set({'password': data.password})

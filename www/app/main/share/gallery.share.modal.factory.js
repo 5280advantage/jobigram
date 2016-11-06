@@ -9,6 +9,11 @@
         };
 
         function show(image) {
+            var user    = Parse.User.current();
+            User.profile(user.username).then(function (data) {
+                console.log("profile",data);
+            });
+            console.log("user", user);
             var defer  = $q.defer();
             var $scope = $rootScope.$new();
 

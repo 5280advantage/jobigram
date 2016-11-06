@@ -2,7 +2,7 @@
     'use strict';
     angular.module('starter').factory('GalleryComment', GalleryComment);
 
-    function GalleryComment(Parse) {
+    function GalleryComment(Parse, $translate) {
 
         var fields = [
             'text',
