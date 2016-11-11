@@ -37,7 +37,7 @@
       $scope.addressPlaceholder ='Your Address';
       $scope.phonePlaceholder ='Phone';
       $scope.bizemailPlaceholder ='E-mail';
-      Parse.User.current().set({'roleName': 'employee'}).save(null, {
+      Parse.User.current().set({'role': 'employee'}).save(null, {
         success: function(gameScore) {
           // Execute any logic that should take place after the object is saved.
           alert('New object created with objectId: ' + gameScore.id);
@@ -58,7 +58,7 @@
       $scope.phonePlaceholder ='Business Phone';
       $scope.bizemailPlaceholder ='Business E-mail';
       $scope.websitePlaceholder ='Business Website';
-      Parse.User.current().set({'roleName': 'employer'}).save();
+      Parse.User.current().set({'role': 'employer'}).save();
     }
 
     function init() {

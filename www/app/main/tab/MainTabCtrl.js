@@ -72,7 +72,8 @@
                         // logLevel: 'info',
                         editor: {
                             image: myImage,
-                            preferredRenderer: 'webgl',
+                          //preferredRenderer: 'canvas' works in ios, preferredRenderer: 'webgl' works in android,
+                            preferredRenderer: 'canvas',
                             // responsive: true,
                             export:{
                                 showButton : true,
@@ -83,12 +84,13 @@
                         },
                         assets: {
                             // baseUrl: 'file:///android_asset/www/sdkassets' // <-- This should be the absolute path to your `cassets` directory
-                            baseUrl: '/sdkassets'
+                            baseUrl: 'sdkassets'
                         }
                     });
                     editorPromise = defer.promise;
 
                         editor.on('export', function (dataURL) {
+                          console.log(dataURL);
                         var url= "/my-upload-handler.php";
                         var data = {
                             image: dataURL
@@ -123,7 +125,7 @@
                 });
                 myImage.src = base64Image;
                 })
-            
+
             // PhotoService.open().then(function (base64Image) {
             //     // console.log(data);
             //     var ReactUI = PhotoEditorSDK.UI.ReactUI;
@@ -164,9 +166,9 @@
             //             var data = {
             //                 image: dataURL
             //             };
-            //            
+            //
             //             // urlData.link=dataURL;
-            //            
+            //
             //         })
             //     }
             //     myImage = new Image();
