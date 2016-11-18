@@ -33,11 +33,16 @@
             feed       : feed,
             search     : search,
             follow     : follow,
-            likeGallery: likeGallery,
+            saveGallery: saveGallery,
+            applyGallery: applyGallery,
         });
 
-        function likeGallery(params) {
-            return Parse.Cloud.run('likeGallery', {galleryId: params.galleryId});
+        function applyGallery(params) {
+            return Parse.Cloud.run('applyGallery', {galleryId: params.galleryId});
+        }
+
+        function saveGallery(params) {
+            return Parse.Cloud.run('saveGallery', {galleryId: params.galleryId});
         }
 
         function follow(params) {
